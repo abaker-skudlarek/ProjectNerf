@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     /* -- Private -- */
     private Rigidbody2D playerRigidBody;
     private Vector3 speedChange;
+    private Animator playerAnimator;
 
     /* -- Public -- */
     //TODO decide on a good initial value for being powerful, should have room to scale down
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
-
+        playerAnimator = GetComponent<Animator>();
 
     }
 
@@ -34,24 +35,32 @@ public class PlayerMovement : MonoBehaviour
 
         /* get horizontal and vertical axis input */
         // TODO compare GetAxisRaw vs GetAxis
-        // TODO prefer just GetAxis, but the longer the key is held
+        // FIXME prefer just GetAxis, but the longer the key is held
         //          the longer he continues to move after letting go. Need to fix that
         speedChange.x = Input.GetAxisRaw("Horizontal");
         speedChange.y = Input.GetAxisRaw("Vertical");
 
         /* move the player */
-        movePlayer();
+        if(speedChange != Vector3.zero)
+        {
+            movePlayer();
+            // TODO this does idle animation. might not be perfectly correct,
+            //          as it's supposed to be 4 directional
+            playerAnimator.SetFloat("moveX", speedChange.x);
+            playerAnimator.SetFloat("moveY", speedChange.y);
+        }
+
 
 
     }
 
-    /* function to move player. This is it's own function so we can call it from other 
+    /* function to move player. This is it's own function so we can call it from other
      *  places if we want. For example, adding on screen buttons */
     void movePlayer()
     {
         /* adding the current position, the change of the speed and multiplying
          *  by the player speed and time delta.
-         * Normalizing the speedChange because otherwise diagonal movement is 
+         * Normalizing the speedChange because otherwise diagonal movement is
          *  twice as fast
          * Multiplying by the time delta will massively slow down the movement
          *  so the player is only moving a fraction of the speed per frame,
