@@ -4,34 +4,34 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 4979363154352999712
-    second: Rogue_0
+    second: Rogue_0_idle0
   - first:
       213: 7921502813010559805
-    second: Rogue_1
+    second: Rogue_1_idle1
   - first:
       213: 500092995896763561
-    second: Rogue_2
+    second: Rogue_2_idle2
   - first:
       213: 7521268726740968743
-    second: Rogue_3
+    second: Rogue_3_idle3
   - first:
       213: -8450313840416949542
-    second: Rogue_4
+    second: Rogue_4_idle4
   - first:
       213: 7652387563259126412
-    second: Rogue_5
+    second: Rogue_5_idle5
   - first:
       213: 747537166349585552
-    second: Rogue_6
+    second: Rogue_6_idle6
   - first:
       213: 4904535553711869849
-    second: Rogue_7
+    second: Rogue_7_idle7
   - first:
       213: 807448920738025961
-    second: Rogue_8
+    second: Rogue_8_idle8
   - first:
       213: 7173849240055794619
-    second: Rogue_9
+    second: Rogue_9_idle9
   - first:
       213: -6278177606702991857
     second: Rogue_10
@@ -88,34 +88,34 @@ TextureImporter:
     second: Rogue_27_walk10
   - first:
       213: 8004587323826319065
-    second: Rogue_28
+    second: Rogue_28_attack1
   - first:
       213: 119297391374881008
-    second: Rogue_29
+    second: Rogue_29_attack2
   - first:
       213: 503950718708004982
-    second: Rogue_30
+    second: Rogue_30_attack3
   - first:
       213: 4595249174636998647
-    second: Rogue_31
+    second: Rogue_31_attack4
   - first:
       213: -3292030621323078197
-    second: Rogue_32
+    second: Rogue_32_attack5
   - first:
       213: -2136168036107386349
-    second: Rogue_33
+    second: Rogue_33_attack6
   - first:
       213: 710092778565068670
-    second: Rogue_34
+    second: Rogue_34_attack7
   - first:
       213: -481885073046568347
-    second: Rogue_35
+    second: Rogue_35_attack8
   - first:
       213: -1953979092185765896
-    second: Rogue_36
+    second: Rogue_36_attack9
   - first:
       213: -2182466473366058320
-    second: Rogue_37
+    second: Rogue_37_attack10
   - first:
       213: 6746760739605462825
     second: Rogue_38
@@ -386,7 +386,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rogue_0
+      name: Rogue_0_idle0
       rect:
         serializedVersion: 2
         x: 9
@@ -407,7 +407,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_1
+      name: Rogue_1_idle1
       rect:
         serializedVersion: 2
         x: 41
@@ -428,7 +428,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_2
+      name: Rogue_2_idle2
       rect:
         serializedVersion: 2
         x: 73
@@ -449,7 +449,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_3
+      name: Rogue_3_idle3
       rect:
         serializedVersion: 2
         x: 105
@@ -470,7 +470,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_4
+      name: Rogue_4_idle4
       rect:
         serializedVersion: 2
         x: 137
@@ -491,7 +491,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_5
+      name: Rogue_5_idle5
       rect:
         serializedVersion: 2
         x: 169
@@ -512,7 +512,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_6
+      name: Rogue_6_idle6
       rect:
         serializedVersion: 2
         x: 201
@@ -533,7 +533,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_7
+      name: Rogue_7_idle7
       rect:
         serializedVersion: 2
         x: 233
@@ -554,7 +554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_8
+      name: Rogue_8_idle8
       rect:
         serializedVersion: 2
         x: 265
@@ -575,7 +575,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_9
+      name: Rogue_9_idle9
       rect:
         serializedVersion: 2
         x: 297
@@ -974,7 +974,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_28
+      name: Rogue_28_attack1
       rect:
         serializedVersion: 2
         x: 9
@@ -995,7 +995,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_29
+      name: Rogue_29_attack2
       rect:
         serializedVersion: 2
         x: 41
@@ -1016,7 +1016,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_30
+      name: Rogue_30_attack3
       rect:
         serializedVersion: 2
         x: 72
@@ -1037,7 +1037,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_31
+      name: Rogue_31_attack4
       rect:
         serializedVersion: 2
         x: 106
@@ -1058,7 +1058,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_32
+      name: Rogue_32_attack5
       rect:
         serializedVersion: 2
         x: 139
@@ -1079,7 +1079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_33
+      name: Rogue_33_attack6
       rect:
         serializedVersion: 2
         x: 171
@@ -1100,7 +1100,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_34
+      name: Rogue_34_attack7
       rect:
         serializedVersion: 2
         x: 202
@@ -1121,7 +1121,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_35
+      name: Rogue_35_attack8
       rect:
         serializedVersion: 2
         x: 234
@@ -1142,7 +1142,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_36
+      name: Rogue_36_attack9
       rect:
         serializedVersion: 2
         x: 265
@@ -1163,7 +1163,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_37
+      name: Rogue_37_attack10
       rect:
         serializedVersion: 2
         x: 297
