@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRigidBody;
     private Vector3 speedChange;
     private Animator playerAnimator;
+    private bool facingRight = true; /* player always starts facing right */
 
     /* -- Public -- */
     //TODO decide on a good initial value for being powerful, should have room to scale down
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /* get the components and set them to their variables */
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
 
@@ -40,18 +42,53 @@ public class PlayerMovement : MonoBehaviour
         speedChange.x = Input.GetAxisRaw("Horizontal");
         speedChange.y = Input.GetAxisRaw("Vertical");
 
-        /* move the player */
+        /* call function to play animation and move character */
+        animationAndMovementHandler();
+
+    }
+
+    /* function to determine what animation to play based on what the character
+     *  is doing. Calls movePlayer() */
+    void animationAndMovementHandler()
+    {
+        /* if we are moving, set moving bool to true and move the player */
         if(speedChange != Vector3.zero)
         {
+            /* set bool saying that we are moving, so transition to walking
+             *  animation from idle animation */
+            playerAnimator.SetBool("isMoving", true);
+
+            /* call function to move player */
             movePlayer();
-            // TODO this does idle animation. might not be perfectly correct,
-            //          as it's supposed to be 4 directional
-            playerAnimator.SetFloat("moveX", speedChange.x);
-            playerAnimator.SetFloat("moveY", speedChange.y);
+        }
+        else /* if we aren't moving, play the idle animation */
+        {
+            /* set bool saying that we aren't moving, so transition to idle
+             *  animation from walking animation */
+            playerAnimator.SetBool("isMoving", false);
         }
 
+        /* after moving, flip the model based on what direction the player is
+         *  moving */
+        flipModel(speedChange.x);
+    }
 
+    /* function to flip the character model based on what way the player is
+     *  moving */
+    void flipModel(float horizontal)
+    {
+        if(horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
+        {
+            /* changes the state of facingRight */
+            facingRight = !facingRight;
 
+            /* this will change the player scale to reflect which way they are
+             *  moving. Essentially changing the x value in the inspector of the
+             *  model */
+            Vector3 playerScale = transform.localScale;
+            playerScale.x *= -1;
+            transform.localScale = playerScale;
+        }
     }
 
     /* function to move player. This is it's own function so we can call it from other
