@@ -1,10 +1,19 @@
+/**
+ *  @file PlayerMovement.cs
+ *
+ *  @brief Defines the player's movement. Including the speed the player moves
+ *          and the animations to play while they are moving or not moving.
+ *
+ *  @author: Alex Baker
+ *  @date:   September 10 2019
+ */
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     /***** Variables *****/
 
     /* -- Private -- */
@@ -20,7 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     /***** Functions *****/
 
-    // Start is called before the first frame update
+    /**
+     * Start()
+     *
+     * Built in Unity function. Start is called before the first frame update
+     *
+     */
     void Start()
     {
         /* get the components and set them to their variables */
@@ -29,7 +43,12 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    /**
+     * Update()
+     *
+     * Built in Unity function. Update is called every frame
+     *
+     */
     void Update()
     {
         /* always start with the change at zero each frame */
@@ -47,8 +66,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    /* function to determine what animation to play based on what the character
-     *  is doing. Calls movePlayer() */
+    /**
+     * animationAndMovementHandler()
+     *
+     * Determines what animation to play based on what the character is doing.
+     *  Calls movePlayer() after setting the animation if the player is moving
+     *
+     */
     void animationAndMovementHandler()
     {
         /* if we are moving, set moving bool to true and move the player */
@@ -73,8 +97,14 @@ public class PlayerMovement : MonoBehaviour
         flipModel(speedChange.x);
     }
 
-    /* function to flip the character model based on what way the player is
-     *  moving */
+    /**
+     * flipModel(float)
+     *
+     * Flips the character model based on what way the player is moving
+     *
+     * @param horizontal: The player's speed change on the X axis
+     *
+     */
     void flipModel(float horizontal)
     {
         if(horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
@@ -91,8 +121,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* function to move player. This is it's own function so we can call it from other
-     *  places if we want. For example, adding on screen buttons */
+    /**
+     * movePlayer()
+     *
+     * Moves the player. This is it's own function so we can call it from other
+     *  places if we want. For example, adding on screen buttons
+     *
+     */
     void movePlayer()
     {
         /* adding the current position, the change of the speed and multiplying
