@@ -20,28 +20,21 @@ public class CameraMovement : MonoBehaviour
 
 
     /* -- Public -- */
-    public Transform cameraTarget;
-    public float cameraSmoothing;
+    public Transform cameraTarget; /* where the camera should be */
+    public float cameraSmoothing;  /* delay at which the camera moves */
+    public Vector2 maxCamPosition; /* maximun the camera can go */
+    public Vector2 minCamPosition; /* minimum the camera can go */
+
 
     /***** Functions *****/
-
-    /**
-     * Start()
-     *
-     * Built in Unity function. Start is called before the first frame update
-     *
-     */
-    void Start()
-    {
-
-    }
 
     /**
      * LateUpdate()
      *
      * Built in Unity function. LateUpdate is called every frame, but after all
-     *  Update() functions are called. We will use it for the follow camera
-     *
+     *  Update() functions are called.
+     * We will use it for the camera to follow the player. It also keeps the
+     *  camera in the bounds of the room
      */
     void LateUpdate()
     {
@@ -54,6 +47,18 @@ public class CameraMovement : MonoBehaviour
                                   cameraTarget.position.x,
                                   cameraTarget.position.y,
                                   transform.position.z);
+
+        /* clamp the X position to the min and max camera positions */
+        targetPosition.x = Mathf.Clamp(
+                            targetPosition.x,
+                            minCamPosition.x,
+                            maxCamPosition.x);
+
+        /* clamp the Y position to the min and max camera positions */
+        targetPosition.y = Mathf.Clamp(
+                            targetPosition.y,
+                            minCamPosition.y,
+                            maxCamPosition.y);
 
         /* setting the camera position to the player's position, applies smoothing
          *  Lerp interpolates between two vectors */

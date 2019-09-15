@@ -17,14 +17,14 @@ public class PlayerMovement : MonoBehaviour
     /***** Variables *****/
 
     /* -- Private -- */
-    private Rigidbody2D playerRigidBody;
-    private Vector3 speedChange;
-    private Animator playerAnimator;
-    private bool facingRight = true; /* player always starts facing right */
+    private Rigidbody2D playerRigidBody; /* player's Rigidbody2D */
+    private Vector3 speedChange;         /* change in speed for the player */
+    private Animator playerAnimator;     /* player's animator */
+    private bool facingRight = true;     /* whether the player is facing right or not */
 
     /* -- Public -- */
     //TODO decide on a good initial value for being powerful, should have room to scale down
-    public float playerSpeed; /* this is public so we can make changes in the inspector */
+    public float playerSpeed; /* the speed the player moves at */
 
 
     /***** Functions *****/
