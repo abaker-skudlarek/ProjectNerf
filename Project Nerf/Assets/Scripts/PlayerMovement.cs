@@ -3,6 +3,7 @@
  *
  *  @brief Defines the player's movement. Including the speed the player moves
  *          and the animations to play while they are moving or not moving.
+ *          Also includes implementations and animations for attacking.
  *
  *  @author: Alex Baker
  *  @date:   September 10 2019
@@ -11,6 +12,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/* state machine for our player that defines the states the player can be in */
+public enum PlayerState
+{
+  walking,
+  attacking,
+  idle
+}
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
     /* -- Public -- */
     //TODO decide on a good initial value for being powerful, should have room to scale down
-    public float playerSpeed; /* the speed the player moves at */
+    public float playerSpeed;              /* the speed the player moves at */
+    public PlayerState playerCurrentState; /* the current state the player is in */
 
 
     /***** Functions *****/
@@ -40,6 +50,12 @@ public class PlayerMovement : MonoBehaviour
         /* get the components and set them to their variables */
         playerRigidBody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        /* set the starting state of the player */
+        playerCurrentState = PlayerState.idle;
+
+        /* be explicit about making sure the player doesn't start the game moving */
+        playerAnimator.SetBool("isMoving", false);
 
     }
 
@@ -61,8 +77,58 @@ public class PlayerMovement : MonoBehaviour
         speedChange.x = Input.GetAxisRaw("Horizontal");
         speedChange.y = Input.GetAxisRaw("Vertical");
 
-        /* call function to play animation and move character */
-        animationAndMovementHandler();
+
+        /* if the player is pressing j, flip the model to the left and start
+         *  the attack coroutine */
+        if(Input.GetKeyDown("j") && playerCurrentState != PlayerState.attacking)
+        {
+          flipModel(-1); /* send -1 for left */
+          StartCoroutine(attackCoroutine());
+        }
+        /* else if the player is pressing l, flip the model to the right and start
+         *  start the attack coroutine */
+        else if(Input.GetKeyDown("l") && playerCurrentState != PlayerState.attacking)
+        {
+          flipModel(1); /* send +1 for right */
+          StartCoroutine(attackCoroutine());
+        }
+        /* if the current state is walking, play the animation and do the movement */
+        else if(playerCurrentState == PlayerState.idle)
+        {
+          animationAndMovementHandler();
+        }
+    }
+
+    /**
+     * attackCoroutine()
+     *
+     * Coroutines run parallel to the main process and allows us to build in
+     *  specific delays.
+     *
+     * This coroutine is for when the player attacks. It will change the player
+     *  state and tell the animation to fire. Also includes a very small delay
+     *  between animations
+     *
+     */
+    private IEnumerator attackCoroutine()
+    {
+        /* tell the attacking animation to fire */
+        playerAnimator.SetBool("isAttacking", true);
+
+        /* set our current state to attacking */
+        playerCurrentState = PlayerState.attacking;
+
+        /* wait 1 frame */
+        yield return null;
+
+        /* turn the attacking animation off */
+        playerAnimator.SetBool("isAttacking", false);
+
+        /* wait the length of the attack animation */
+        yield return new WaitForSeconds(.92f);
+
+        /* set the player state back to idle */
+        playerCurrentState = PlayerState.idle;
 
     }
 
