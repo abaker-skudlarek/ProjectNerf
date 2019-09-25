@@ -77,7 +77,22 @@ public class PlayerMovement : MonoBehaviour
         speedChange.x = Input.GetAxisRaw("Horizontal");
         speedChange.y = Input.GetAxisRaw("Vertical");
 
+        /* determine if the player wants to move or attack and what to do based
+         *  on that */
+        processPlayerActions();
 
+    }
+
+    /**
+     * processPlayerActions()
+     *
+     * Process what type of movement the player wants to do based on the state
+     *  and the current buttons being pressed. Will call the animation handler
+     *  and flip the player model if it needs to.
+     *
+     */
+    void processPlayerActions()
+    {
         /* if the player is pressing j, flip the model to the left and start
          *  the attack coroutine */
         if(Input.GetKeyDown("j") && playerCurrentState != PlayerState.attacking)
@@ -89,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
          *  start the attack coroutine */
         else if(Input.GetKeyDown("l") && playerCurrentState != PlayerState.attacking)
         {
-          flipModel(1); /* send +1 for right */
+          flipModel(1);
           StartCoroutine(attackCoroutine());
         }
         /* if the current state is walking, play the animation and do the movement */
