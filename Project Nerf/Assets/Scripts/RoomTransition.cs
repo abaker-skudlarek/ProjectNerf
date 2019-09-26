@@ -26,7 +26,12 @@ public class RoomTransition : MonoBehaviour
 
     /***** Functions *****/
 
-    // Start is called before the first frame update
+    /**
+     * Start()
+     *
+     * Built in Unity function. Start is called before the first frame update
+     *
+     */
     void Start()
     {
       cameraObject = Camera.main.GetComponent<CameraMovement>();
