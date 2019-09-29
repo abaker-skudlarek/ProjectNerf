@@ -74,7 +74,7 @@ public class SlimeEnemy : MonoBehaviour
     private IEnumerator removeSlime()
     {
       /* wait for roughly the time of the animation */
-      yield return new WaitForSeconds(1.3f);
+      yield return new WaitForSeconds(1.5f);
 
       /* set the game object to inactive, making it invisible */
       this.gameObject.SetActive(false);
