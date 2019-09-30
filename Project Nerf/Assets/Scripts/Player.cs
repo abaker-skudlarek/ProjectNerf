@@ -1,9 +1,8 @@
 /**
  *  @file PlayerMovement.cs
  *
- *  @brief Defines the player's movement. Including the speed the player moves
- *          and the animations to play while they are moving or not moving.
- *          Also includes implementations and animations for attacking.
+ *  @brief Defines everything that makes the player a player. Movement, attacking,
+ *          animations, state, ect.
  *
  *  @author: Alex Baker
  *  @date:   September 10 2019
@@ -21,7 +20,7 @@ public enum PlayerState
   idle
 }
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     /***** Variables *****/
 
@@ -80,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         /* determine if the player wants to move or attack and what to do based
          *  on that */
         processPlayerActions();
-
     }
 
     /**
@@ -144,6 +142,27 @@ public class PlayerMovement : MonoBehaviour
 
         /* set the player state back to idle */
         playerCurrentState = PlayerState.idle;
+
+    }
+
+    /**
+     * OnTriggerEnter2D(Collider2d)
+     *
+     * When the player attacks something tagged as an enemy, this will fire
+     *
+     * @param otherCollider: The thing that is being attacked
+     *
+     */
+    private void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+      /* if the thing that is being collided into is tagged as an enemy */
+      if(otherCollider.CompareTag("enemy"))
+      {
+        // TODO at some point this will have to be interchangeable, because it won't always
+        //        be an enemy slime being attacked
+        /* call the death animation for the enemy slime */
+        otherCollider.GetComponent<GreenSlime>().slimeDeath();
+      }
 
     }
 
