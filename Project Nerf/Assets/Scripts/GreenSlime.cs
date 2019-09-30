@@ -20,11 +20,11 @@ public class GreenSlime : EnemyParent
     private Animator slimeAnimator;
 
     /* -- Public -- */
-    public Transform target;       /* what the enemy is set to chase */
     public float chaseRadius;      /* the radius that the enemy will chase at */
     public float attackRadius;     /* the radius that the enemy will attack at */
     public Transform homePosition; /* where to move back to when the player
                                        moves out of radius from the enemy */
+    public Transform target;       /* what the enemy is set to chase */
 
     /***** Functions *****/
 
@@ -78,7 +78,7 @@ public class GreenSlime : EnemyParent
     }
 
     /**
-     * SlimeDeath()
+     * slimeDeath()
      *
      * Defines what happens when the slime dies. Death animation should play, it
      *  should stop moving, and be removed from the scene

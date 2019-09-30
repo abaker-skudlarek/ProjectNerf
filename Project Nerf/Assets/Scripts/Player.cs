@@ -34,7 +34,9 @@ public class Player : MonoBehaviour
     //TODO decide on a good initial value for being powerful, should have room to scale down
     public float playerSpeed;              /* the speed the player moves at */
     public PlayerState playerCurrentState; /* the current state the player is in */
-
+    public double baseDamage;              /* base damage for the player */
+    public double currDamage;              /* current damage for the player,
+                                                could be changed by multiple things */
 
     /***** Functions *****/
 
@@ -156,12 +158,12 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
       /* if the thing that is being collided into is tagged as an enemy */
-      if(otherCollider.CompareTag("enemy"))
+      if(otherCollider.gameObject.CompareTag("enemy"))
       {
         // TODO at some point this will have to be interchangeable, because it won't always
         //        be an enemy slime being attacked
         /* call the death animation for the enemy slime */
-        otherCollider.GetComponent<GreenSlime>().slimeDeath();
+        //otherCollider.GetComponent<GreenSlime>().slimeDeath();
       }
 
     }

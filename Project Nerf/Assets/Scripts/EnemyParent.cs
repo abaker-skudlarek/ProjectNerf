@@ -19,7 +19,8 @@ public class EnemyParent : MonoBehaviour
     /* -- Private -- */
 
     /* -- Public -- */
-    public double enemyHealth;     /* the base health of the enemy */
+    public double enemyMaxHealth;  /* the max health of the enemy */
+    public double enemyCurrHealth; /* the current health of the enemy */
     public string enemyName;       /* the name of the enemy */
     public double enemyBaseAttack; /* the base attack value of the enemy */
     public float enemyBaseSpeed;   /* the base move speed of the enemy */
