@@ -40,7 +40,7 @@ public class Knockback : MonoBehaviour
         Rigidbody2D enemy = otherCollider.GetComponent<Rigidbody2D>();
         if(enemy != null)
         {
-          enemy.isKinematic = false;
+          enemy.GetComponent<EnemyParent>().currentState = EnemyState.staggered;
 
           Vector2 locationDifference = enemy.transform.position - transform.position;
 
@@ -49,7 +49,7 @@ public class Knockback : MonoBehaviour
           enemy.AddForce(locationDifference, ForceMode2D.Impulse);
 
           StartCoroutine(knockbackCoroutine(enemy));
-          
+
         }
       }
     }
@@ -62,10 +62,7 @@ public class Knockback : MonoBehaviour
 
         enemy.velocity = Vector2.zero;
 
-        enemy.isKinematic = true;
+        enemy.GetComponent<EnemyParent>().currentState = EnemyState.idle;
       }
-
-
     }
-
 }

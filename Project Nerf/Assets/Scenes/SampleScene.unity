@@ -827,8 +827,9 @@ GameObject:
   - component: {fileID: 1131781535}
   - component: {fileID: 1131781537}
   - component: {fileID: 1131781538}
-  - component: {fileID: 1131781539}
   - component: {fileID: 1131781540}
+  - component: {fileID: 1131781539}
+  - component: {fileID: 1131781541}
   m_Layer: 0
   m_Name: PlayerRogue001
   m_TagString: Player
@@ -894,7 +895,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131781534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1268463131}
@@ -935,7 +936,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0050940514, y: -0.80007374}
+  m_Offset: {x: 0.0007495433, y: -0.80007374}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -946,7 +947,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8685267, y: 0.3373525}
+  m_Size: {x: 0.63392234, y: 0.3373525}
   m_EdgeRadius: 0
 --- !u!114 &1131781539
 MonoBehaviour:
@@ -962,6 +963,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   playerCurrentState: 2
+  baseDamage: 1
+  currDamage: 1
 --- !u!95 &1131781540
 Animator:
   serializedVersion: 3
@@ -981,6 +984,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1131781541
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131781534}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012690783, y: -0.0037240982}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.875, y: 1.9375}
+    newSize: {x: 0.875, y: 1.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.39565516, y: 1.687026}
+  m_EdgeRadius: 0
 --- !u!1 &1268463130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,14 +1067,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.117089, y: 0.2343818}
-      - {x: 0.805992, y: 0.4677629}
+    - - {x: 1.1713619, y: 0.38435215}
+      - {x: 0.9947643, y: 0.4613533}
+      - {x: 0.7421446, y: 0.45754412}
+      - {x: 0.38199425, y: 0.46146703}
       - {x: 0.091686174, y: 0.45953447}
       - {x: 0.10092121, y: -0.04325077}
       - {x: 0.09744789, y: -0.58704025}
-      - {x: 0.7926514, y: -0.5779745}
-      - {x: 1.1083438, y: -0.320282}
-      - {x: 1.1128542, y: -0.027616397}
+      - {x: 0.72424006, y: -0.576806}
+      - {x: 0.97113585, y: -0.57481897}
+      - {x: 1.148299, y: -0.51483655}
+      - {x: 1.2597017, y: -0.006041877}
 --- !u!114 &1268463133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,9 +1087,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1268463130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8b3f96e777bd4b2da02c3eab18f1725, type: 3}
+  m_Script: {fileID: 11500000, guid: ee26979c71f094471b2ac20bfb14e921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thrust: 7
+  knockbackTime: 0.15
 --- !u!1001 &1504092074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2049,8 +2083,8 @@ GameObject:
   - component: {fileID: 1619979173}
   - component: {fileID: 1619979172}
   - component: {fileID: 1619979176}
-  - component: {fileID: 1619979175}
   - component: {fileID: 1619979177}
+  - component: {fileID: 1619979175}
   - component: {fileID: 1619979178}
   m_Layer: 0
   m_Name: GreenSlime
@@ -2143,7 +2177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619979171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.45, y: -0.47686252, z: 0}
+  m_LocalPosition: {x: 4, y: -0.47686252, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2158,9 +2192,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1619979171}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa5700cd93ac0498085797719b95a970, type: 3}
+  m_Script: {fileID: 11500000, guid: 535dce595eb6045b4a0e09f4916d3e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMaxHealth: 0
+  enemyCurrHealth: 0
+  enemyName: GreenSlime001
+  enemyBaseAttack: 1
+  enemyBaseSpeed: 2
+  currentState: 0
+  chaseRadius: 5
+  attackRadius: 1.2
+  homePosition: {fileID: 0}
+  target: {fileID: 0}
 --- !u!95 &1619979176
 Animator:
   serializedVersion: 3
@@ -2188,7 +2232,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619979171}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2198,29 +2242,35 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1619979178
-MonoBehaviour:
+--- !u!61 &1619979178
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619979171}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535dce595eb6045b4a0e09f4916d3e73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 3
-  enemyName: GreenSlime1
-  enemyBaseAttack: 1
-  enemyBaseSpeed: 2
-  target: {fileID: 0}
-  chaseRadius: 5
-  attackRadius: 1
-  homePosition: {fileID: 0}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005786419, y: -0.18805575}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81483746, y: 0.67017937}
+  m_EdgeRadius: 0
 --- !u!4 &2140416166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5398287996133271105, guid: e7c1ce7c80060cc48b74e31c6f4c744b,

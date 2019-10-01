@@ -31,9 +31,9 @@ public class Player : MonoBehaviour
     private bool facingRight = true;     /* whether the player is facing right or not */
 
     /* -- Public -- */
-    //TODO decide on a good initial value for being powerful, should have room to scale down
+    //TODO decide on a good initial values for being powerful, should have room to scale down
     public float playerSpeed;              /* the speed the player moves at */
-    public PlayerState playerCurrentState; /* the current state the player is in */
+    public PlayerState currentState;       /* the current state the player is in */
     public double baseDamage;              /* base damage for the player */
     public double currDamage;              /* current damage for the player,
                                                 could be changed by multiple things */
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
 
         /* set the starting state of the player */
-        playerCurrentState = PlayerState.idle;
+        currentState = PlayerState.idle;
 
         /* be explicit about making sure the player doesn't start the game moving */
         playerAnimator.SetBool("isMoving", false);
@@ -95,20 +95,20 @@ public class Player : MonoBehaviour
     {
         /* if the player is pressing j, flip the model to the left and start
          *  the attack coroutine */
-        if(Input.GetKeyDown("j") && playerCurrentState != PlayerState.attacking)
+        if(Input.GetKeyDown("j") && currentState != PlayerState.attacking)
         {
           flipModel(-1); /* send -1 for left */
           StartCoroutine(attackCoroutine());
         }
         /* else if the player is pressing l, flip the model to the right and start
          *  start the attack coroutine */
-        else if(Input.GetKeyDown("l") && playerCurrentState != PlayerState.attacking)
+        else if(Input.GetKeyDown("l") && currentState != PlayerState.attacking)
         {
           flipModel(1);
           StartCoroutine(attackCoroutine());
         }
         /* if the current state is walking, play the animation and do the movement */
-        else if(playerCurrentState == PlayerState.idle)
+        else if(currentState == PlayerState.idle)
         {
           animationAndMovementHandler();
         }
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         playerAnimator.SetBool("isAttacking", true);
 
         /* set our current state to attacking */
-        playerCurrentState = PlayerState.attacking;
+        currentState = PlayerState.attacking;
 
         /* wait 1 frame */
         yield return null;
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.92f);
 
         /* set the player state back to idle */
-        playerCurrentState = PlayerState.idle;
+        currentState = PlayerState.idle;
 
     }
 
@@ -155,6 +155,11 @@ public class Player : MonoBehaviour
      * @param otherCollider: The thing that is being attacked
      *
      */
+     //FIXME there is a bug here that doesn't enable the player's attack hit box
+     //       to affect the enemy if the enemy is already in the range of the hitbox
+     //       when the player attacks. To reproduce: have enemy follow until they
+     //       can't anymore, then try to attack. It won't work, but on moving out
+     //       and then back, it will
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
       /* if the thing that is being collided into is tagged as an enemy */

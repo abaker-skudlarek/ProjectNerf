@@ -18,6 +18,7 @@ public class GreenSlime : EnemyParent
 
     /* -- Private -- */
     private Animator slimeAnimator;
+    private Rigidbody2D slimeBody;
 
     /* -- Public -- */
     public float chaseRadius;      /* the radius that the enemy will chase at */
@@ -36,8 +37,12 @@ public class GreenSlime : EnemyParent
      */
     void Start()
     {
-      /* get the animator attached to the slime */
+      /* complete the references */
       slimeAnimator = GetComponent<Animator>();
+      slimeBody = GetComponent<Rigidbody2D>();
+
+      /* start the enemy in the idle state */
+      currentState = EnemyState.idle;
 
       /* get the location of the player (.transform just gets the location) */
       target = GameObject.FindWithTag("Player").transform;
@@ -60,7 +65,7 @@ public class GreenSlime : EnemyParent
      * checkDistance()
      *
      * This funtion checks the enemy distance with the player's (AKA target) and
-     *  moves towards the player if they are within range
+     *  moves towards the player if they are within range.
      *
      */
     void checkDistance()
@@ -69,10 +74,23 @@ public class GreenSlime : EnemyParent
       if(Vector3.Distance(target.position, transform.position) <= chaseRadius
           && Vector3.Distance(target.position, transform.position) > attackRadius)
       {
-        /* move towards the player at a rate of the enemy's speed */
-        transform.position = Vector3.MoveTowards(transform.position,
-                                                 target.position,
-                                                 enemyBaseSpeed * Time.deltaTime);
+        /* if the enemy is idling or walking and not staggered then we want to move */
+        if(currentState == EnemyState.idle || currentState == EnemyState.walking
+            && currentState != EnemyState.staggered)
+        {
+          /* move towards the player at a rate of the enemy's speed */
+          Vector3 tempVector = Vector3.MoveTowards(transform.position,
+                                                   target.position,
+                                                   enemyBaseSpeed * Time.deltaTime);
+
+          /* apply the position change to the rigid body */
+          slimeBody.MovePosition(tempVector);
+
+          /* try to change the current state to walking after moving, won't change
+              if it's already in the walking state */
+          currentState = changeState(currentState, EnemyState.walking);
+
+        }
       }
 
     }
