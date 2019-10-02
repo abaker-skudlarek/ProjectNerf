@@ -38,28 +38,6 @@ public class EnemyParent : MonoBehaviour
     /***** Functions *****/
 
     /**
-     * Start()
-     *
-     * Built in Unity function. Start is called before the first frame update
-     *
-     */
-    void Start()
-    {
-
-    }
-
-    /**
-     * Update()
-     *
-     * Built in Unity function. Update is called every frame
-     *
-     */
-    void Update()
-    {
-
-    }
-
-    /**
      * changeState(EnemyState, EnemyState)
      *
      * Checking the current state against the requested state, returns the new state
@@ -83,5 +61,48 @@ public class EnemyParent : MonoBehaviour
         return currentState;
     }
 
+    /**
+     * startKnockback(Rigidbody2D, float)
+     *
+     * Starts the knockback coroutine
+     *
+     * @param enemyBody: The rigid body of the enemy that is being knocked back
+     * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
+     *
+     */
+    public void startKnockback(Rigidbody2D enemyBody, float knockbackTime)
+    {
+      /* run the coroutine for the knockback */
+      StartCoroutine(knockbackCoroutine(enemyBody, knockbackTime));
+    }
+
+    /**
+     * knockbackCoroutine(Rigidbody2D, float)
+     *
+     * Coroutine that runs when an enemy is knocked back after being hit by the
+     *  player
+     *
+     * @param enemyBody: The rigid body of the enemy that is being knocked back
+     * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
+     *
+     */
+    private IEnumerator knockbackCoroutine(Rigidbody2D enemyBody, float knockbackTime)
+    {
+      /* as long as there is an enemy and its not already staggered */
+      if(enemyBody != null)
+      {
+        /* wait for the amount of time for the knockback */
+        yield return new WaitForSeconds(knockbackTime);
+
+        /* set the enemy's velocity to zero after the knockback is done */
+        enemyBody.velocity = Vector2.zero;
+
+        /* after the knockback the enemy should be idle */
+        currentState = EnemyState.idle;
+
+        /* this prevents the enemy from sliding back forever */
+        enemyBody.velocity = Vector2.zero;
+      }
+    }
 
 }

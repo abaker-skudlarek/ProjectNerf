@@ -90,7 +90,16 @@ public class GreenSlime : EnemyParent
               if it's already in the walking state */
           currentState = changeState(currentState, EnemyState.walking);
 
+          //TODO IDEA this slime jumps when he moves, but others could roll, just play the idle animation, or do a combination
+          /* set the moving animator bool to true, so we can play the walking animation */
+          slimeAnimator.SetBool("isMoving", true);
         }
+      }
+      else
+      {
+        /* set the moving animator to false, because our slime isn't moving if
+            he isn't within the chase radius */
+        slimeAnimator.SetBool("isMoving", false);
       }
 
     }
@@ -102,7 +111,7 @@ public class GreenSlime : EnemyParent
      *  should stop moving, and be removed from the scene
      *
      */
-    public void slimeDeath()
+    public void death()
     {
       /* set the boolean for the death animation to be true */
       slimeAnimator.SetBool("isDead", true);

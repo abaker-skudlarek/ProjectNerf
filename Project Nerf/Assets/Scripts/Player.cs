@@ -17,7 +17,8 @@ public enum PlayerState
 {
   walking,
   attacking,
-  idle
+  idle,
+  staggered
 }
 
 public class Player : MonoBehaviour
@@ -93,23 +94,30 @@ public class Player : MonoBehaviour
      */
     void processPlayerActions()
     {
-        /* if the player is pressing j, flip the model to the left and start
-         *  the attack coroutine */
-        if(Input.GetKeyDown("j") && currentState != PlayerState.attacking)
+        /* if the player is pressing j, and not attacking, and not staggered */
+        if(Input.GetKeyDown("j") && currentState != PlayerState.attacking
+            && currentState != PlayerState.staggered)
         {
-          flipModel(-1); /* send -1 for left */
+          /* send -1 to face the player to the left */
+          flipModel(-1);
+
+          /* start the coroutine for attacking */
           StartCoroutine(attackCoroutine());
         }
-        /* else if the player is pressing l, flip the model to the right and start
-         *  start the attack coroutine */
-        else if(Input.GetKeyDown("l") && currentState != PlayerState.attacking)
+        /* if the player is pressing l, and not attacking, and not staggered */
+        else if(Input.GetKeyDown("l") && currentState != PlayerState.attacking
+                 && currentState != PlayerState.staggered)
         {
+          /* send 1 to face the player to the right */
           flipModel(1);
+
+          /* start the coroutine for attacking */
           StartCoroutine(attackCoroutine());
         }
-        /* if the current state is walking, play the animation and do the movement */
-        else if(currentState == PlayerState.idle)
+        /* if the player is walking */
+        else if(currentState == PlayerState.walking || currentState == PlayerState.idle)
         {
+          /* play the animation and do the movement */
           animationAndMovementHandler();
         }
     }
@@ -148,6 +156,11 @@ public class Player : MonoBehaviour
     }
 
     /**
+      //NOTE this function isn't being used right now. It's functionality has
+              been relocated to the knockback script, which is attached to the
+              player's hitbox, so it made more sense to put it there. I'm leaving
+              this here for now just in case I decide to revert back to how it was
+
      * OnTriggerEnter2D(Collider2d)
      *
      * When the player attacks something tagged as an enemy, this will fire
@@ -155,23 +168,15 @@ public class Player : MonoBehaviour
      * @param otherCollider: The thing that is being attacked
      *
      */
-     //FIXME there is a bug here that doesn't enable the player's attack hit box
-     //       to affect the enemy if the enemy is already in the range of the hitbox
-     //       when the player attacks. To reproduce: have enemy follow until they
-     //       can't anymore, then try to attack. It won't work, but on moving out
-     //       and then back, it will
-    private void OnTriggerEnter2D(Collider2D otherCollider)
-    {
+    //private void OnTriggerEnter2D(Collider2D otherCollider)
+    //{
       /* if the thing that is being collided into is tagged as an enemy */
-      if(otherCollider.gameObject.CompareTag("enemy"))
-      {
-        // TODO at some point this will have to be interchangeable, because it won't always
-        //        be an enemy slime being attacked
+    //  if(otherCollider.gameObject.CompareTag("enemy"))
+    //  {
         /* call the death animation for the enemy slime */
         //otherCollider.GetComponent<GreenSlime>().slimeDeath();
-      }
-
-    }
+     // }
+    //}
 
     /**
      * animationAndMovementHandler()
@@ -247,5 +252,46 @@ public class Player : MonoBehaviour
         playerRigidBody.MovePosition(
             transform.position + speedChange.normalized * playerSpeed * Time.deltaTime
         );
+    }
+
+    /**
+     * startKnockback(float)
+     *
+     * Starts the knockback coroutine
+     *
+     * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
+     *
+     */
+    public void startKnockback(float knockbackTime)
+    {
+      /* run the coroutine for the knockback */
+      StartCoroutine(knockbackCoroutine(knockbackTime));
+    }
+
+    /**
+     * knockbackCoroutine(float)
+     *
+     * This is the knockback coroutine for the player. Same as the enemy knockback
+     *  but just tailored for the player
+     *
+     * @param knockbackTime: The amount of time the player should be knocked back for
+     *
+     */
+    private IEnumerator knockbackCoroutine(float knockbackTime)
+    {
+      if(playerRigidBody != null)
+      {
+        /* wait for the amount of time for the knockback */
+        yield return new WaitForSeconds(knockbackTime);
+
+        /* set the player's velocity to zero after the knockback is done */
+        playerRigidBody.velocity = Vector2.zero;
+
+        /* after the knockback the player should be idle */
+        currentState = PlayerState.idle;
+
+        /* this prevents the player from sliding back forever */
+        playerRigidBody.velocity = Vector2.zero;
+      }
     }
 }
