@@ -118,10 +118,22 @@ public class EnemyParent : MonoBehaviour
       }
     }
 
+    /**
+     * takeDamage(float)
+     *
+     * This applies the damage to the enemy that is taken when they are hit by
+     *  the player. If the damage is enough to bring them to or below 0, they
+     *  are dead and need to call their death function
+     *
+     * @param damage: The amount of damage that the hit does, will be subtracted
+     *                  from the HP of the enemy
+     */
     private void takeDamage(float damage)
     {
+      /* subtract the damage from the current HP of the enemy */
       enemyCurrHealth -= damage;
 
+      /* call the death function if the HP is at or below 0 */
       if(enemyCurrHealth <= 0)
       {
         //FIXME need to call the death animation for the enemy slime here, not working though
@@ -129,7 +141,7 @@ public class EnemyParent : MonoBehaviour
         this.gameObject.SetActive(false);
 
       }
-
     }
+
 
 }

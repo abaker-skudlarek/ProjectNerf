@@ -55,8 +55,11 @@ public class Knockback : MonoBehaviour
         objectHit.AddForce(locationDifference, ForceMode2D.Impulse);
 
         /* depending on what the object is, set their state to staggered and then
-            start that object's knockback coroutine */
-        if(otherCollider.gameObject.CompareTag("enemy"))
+            start that object's knockback coroutine.
+            We are also checking if it is a trigger because we don't want to double
+            count the hit since there are two hitboxes on the enemy. We just want
+            to count the "hurtbox", not the collider hit box */
+        if(otherCollider.gameObject.CompareTag("enemy") && otherCollider.isTrigger)
         {
           objectHit.GetComponent<EnemyParent>().currentState = EnemyState.staggered;
 
@@ -77,9 +80,13 @@ public class Knockback : MonoBehaviour
         }
         else if(otherCollider.gameObject.CompareTag("Player"))
         {
-          objectHit.GetComponent<Player>().currentState = PlayerState.staggered;
+          /* we don't want to knockback the player if they are already staggered */
+          if(otherCollider.GetComponent<Player>().currentState != PlayerState.staggered)
+          {
+            objectHit.GetComponent<Player>().currentState = PlayerState.staggered;
 
-          otherCollider.GetComponent<Player>().startKnockback(knockbackTime);
+            otherCollider.GetComponent<Player>().startKnockback(knockbackTime, damage);
+          }
         }
       }
     }

@@ -33,11 +33,13 @@ public class Player : MonoBehaviour
 
     /* -- Public -- */
     //TODO decide on a good initial values for being powerful, should have room to scale down
-    public float playerSpeed;              /* the speed the player moves at */
-    public PlayerState currentState;       /* the current state the player is in */
-    public double baseDamage;              /* base damage for the player */
-    public double currDamage;              /* current damage for the player,
-                                                could be changed by multiple things */
+    public float playerSpeed;                   /* the speed the player moves at */
+    public PlayerState currentState;            /* the current state the player is in */
+    public FloatValue currHealth;               /* current HP of the player */
+    public ScriptableSignal playerHealthSignal; /* signal for the player's health */
+    public double baseDamage;                   /* base damage for the player */
+    public double currDamage;                   /* current damage for the player,
+                                                    could be changed by multiple things */
 
     /***** Functions *****/
 
@@ -57,7 +59,6 @@ public class Player : MonoBehaviour
 
         /* be explicit about making sure the player doesn't start the game moving */
         playerAnimator.SetBool("isMoving", false);
-
     }
 
     /**
@@ -219,7 +220,7 @@ public class Player : MonoBehaviour
             facingRight = !facingRight;
 
             /* this will change the player scale to reflect which way they are
-             *  moving. Essentially changing the x value in the inspector of the
+             *  moving. Essentially flipping the x value in the inspector of the
              *  model */
             Vector3 playerScale = transform.localScale;
             playerScale.x *= -1;
@@ -250,14 +251,27 @@ public class Player : MonoBehaviour
     /**
      * startKnockback(float)
      *
-     * Starts the knockback coroutine
+     * Applies damage after getting hit and decides whether to start the knockback
+     *  coroutine. If the player is still alive, then start the coroutine
      *
      * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
      */
-    public void startKnockback(float knockbackTime)
+    public void startKnockback(float knockbackTime, float damage)
     {
-      /* run the coroutine for the knockback */
-      StartCoroutine(knockbackCoroutine(knockbackTime));
+      /* take damage from the hit no matter what */
+      currHealth.initialValue -= damage;
+
+      if(currHealth.initialValue > 0)
+      {
+        /* raise the flag to let anything that subscribes to this signal know that
+            the player got hit. This can later be something like a sound, a screen shake, ect */
+        playerHealthSignal.raise();
+
+        /* run the coroutine for the knockback */
+        StartCoroutine(knockbackCoroutine(knockbackTime));
+
+      }
+
     }
 
     /**
