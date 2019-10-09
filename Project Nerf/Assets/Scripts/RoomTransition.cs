@@ -30,7 +30,6 @@ public class RoomTransition : MonoBehaviour
      * Start()
      *
      * Built in Unity function. Start is called before the first frame update
-     *
      */
     void Start()
     {
@@ -49,7 +48,6 @@ public class RoomTransition : MonoBehaviour
      *
      * @param otherCollider: The thing that is colliding into the object this is
      *                        attached to. The player in our most common use case
-     *
      */
      // TODO This should be disabled until all the enemies in the current room are dead.
      //       So check that they are dead, if not, don't do anything on collision until they are

@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
      * Start()
      *
      * Built in Unity function. Start is called before the first frame update
-     *
      */
     void Start()
     {
@@ -65,7 +64,6 @@ public class Player : MonoBehaviour
      * Update()
      *
      * Built in Unity function. Update is called every frame
-     *
      */
     void Update()
     {
@@ -90,7 +88,6 @@ public class Player : MonoBehaviour
      * Process what type of movement the player wants to do based on the state
      *  and the current buttons being pressed. Will call the animation handler
      *  and flip the player model if it needs to.
-     *
      */
     void processPlayerActions()
     {
@@ -131,7 +128,6 @@ public class Player : MonoBehaviour
      * This coroutine is for when the player attacks. It will change the player
      *  state and tell the animation to fire. Also includes a very small delay
      *  between animations
-     *
      */
     private IEnumerator attackCoroutine()
     {
@@ -183,7 +179,6 @@ public class Player : MonoBehaviour
      *
      * Determines what animation to play based on what the character is doing.
      *  Calls movePlayer() after setting the animation if the player is moving
-     *
      */
     void animationAndMovementHandler()
     {
@@ -215,7 +210,6 @@ public class Player : MonoBehaviour
      * Flips the character model based on what way the player is moving
      *
      * @param horizontal: The player's speed change on the X axis
-     *
      */
     void flipModel(float horizontal)
     {
@@ -238,7 +232,6 @@ public class Player : MonoBehaviour
      *
      * Moves the player. This is it's own function so we can call it from other
      *  places if we want. For example, adding on screen buttons
-     *
      */
     void movePlayer()
     {
@@ -260,7 +253,6 @@ public class Player : MonoBehaviour
      * Starts the knockback coroutine
      *
      * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
-     *
      */
     public void startKnockback(float knockbackTime)
     {
@@ -275,7 +267,6 @@ public class Player : MonoBehaviour
      *  but just tailored for the player
      *
      * @param knockbackTime: The amount of time the player should be knocked back for
-     *
      */
     private IEnumerator knockbackCoroutine(float knockbackTime)
     {

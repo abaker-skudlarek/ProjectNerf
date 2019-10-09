@@ -1,8 +1,9 @@
 /**
- *  @file RoomTransition.cs
+ *  @file Knockback.cs
  *
- *  @brief Defines the way the camera should move and follow the player when
- *          they move to a different room
+ *  @brief Defines the knockback used by characters and how it should affect the
+ *          world around them. Meant to be attached to an object that attacks, such
+ *          as the player's weapon hitbox
  *
  *  @author: Alex Baker
  *  @date:   September 17 2019
@@ -21,6 +22,7 @@ public class Knockback : MonoBehaviour
     /* -- Public -- */
     public float thrust;        /* thrust force of the player's knockback */
     public float knockbackTime; /* amount of time the knockback lasts */
+    public float damage;        /* amount of damage the attack does */
 
     /***** Functions *****/
 
@@ -32,7 +34,6 @@ public class Knockback : MonoBehaviour
      *
      * @param otherCollider: The thing that is colliding into the object this is
      *                        attached to
-     *
      */
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
@@ -59,7 +60,7 @@ public class Knockback : MonoBehaviour
         {
           objectHit.GetComponent<EnemyParent>().currentState = EnemyState.staggered;
 
-          otherCollider.GetComponent<EnemyParent>().startKnockback(objectHit, knockbackTime);
+          otherCollider.GetComponent<EnemyParent>().startKnockback(objectHit, knockbackTime, damage);
 
           /* we want to play the death animation for the enemy, but not if it's
               two enemies colliding into each other. So if this isn't an enemy,
@@ -70,7 +71,7 @@ public class Knockback : MonoBehaviour
           //      so we would call the parent classes childDeath() function (or something)
           if(this.gameObject.tag != "enemy")
           {
-            otherCollider.GetComponent<GreenSlime>().death();
+           // otherCollider.GetComponent<GreenSlime>().death();
           }
 
         }

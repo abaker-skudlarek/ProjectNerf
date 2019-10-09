@@ -28,14 +28,26 @@ public class EnemyParent : MonoBehaviour
     /* -- Private -- */
 
     /* -- Public -- */
-    public double enemyMaxHealth;   /* the max health of the enemy */
-    public double enemyCurrHealth;  /* the current health of the enemy */
-    public string enemyName;        /* the name of the enemy */
-    public double enemyBaseAttack;  /* the base attack value of the enemy */
-    public float enemyBaseSpeed;    /* the base move speed of the enemy */
-    public EnemyState currentState; /* current state of the enemy */
+    public FloatValue enemyMaxHealth; /* the max health of the enemy */
+    public float enemyCurrHealth;     /* the current health of the enemy */
+    public string enemyName;          /* the name of the enemy */
+    public double enemyBaseAttack;    /* the base attack value of the enemy */
+    public float enemyBaseSpeed;      /* the base move speed of the enemy */
+    public EnemyState currentState;   /* current state of the enemy */
 
     /***** Functions *****/
+
+    /**
+     * Awake()
+     *
+     * Built in Unity function. Called when the script instance is being loaded.
+     *  Used to initialize any variables before the game starts.
+     */
+    private void Awake()
+    {
+      /* start the HP at the max HP the enemy can have */
+      enemyCurrHealth = enemyMaxHealth.initialValue;
+    }
 
     /**
      * changeState(EnemyState, EnemyState)
@@ -68,12 +80,14 @@ public class EnemyParent : MonoBehaviour
      *
      * @param enemyBody: The rigid body of the enemy that is being knocked back
      * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
-     *
      */
-    public void startKnockback(Rigidbody2D enemyBody, float knockbackTime)
+    public void startKnockback(Rigidbody2D enemyBody, float knockbackTime, float damage)
     {
       /* run the coroutine for the knockback */
       StartCoroutine(knockbackCoroutine(enemyBody, knockbackTime));
+
+      /* take damage after the hit */
+      takeDamage(damage);
     }
 
     /**
@@ -84,7 +98,6 @@ public class EnemyParent : MonoBehaviour
      *
      * @param enemyBody: The rigid body of the enemy that is being knocked back
      * @param knockbackTime:  The amount of time that we want the enemy be knocked back for
-     *
      */
     private IEnumerator knockbackCoroutine(Rigidbody2D enemyBody, float knockbackTime)
     {
@@ -103,6 +116,20 @@ public class EnemyParent : MonoBehaviour
         /* this prevents the enemy from sliding back forever */
         enemyBody.velocity = Vector2.zero;
       }
+    }
+
+    private void takeDamage(float damage)
+    {
+      enemyCurrHealth -= damage;
+
+      if(enemyCurrHealth <= 0)
+      {
+        //FIXME need to call the death animation for the enemy slime here, not working though
+        //this.gameObject.death();
+        this.gameObject.SetActive(false);
+
+      }
+
     }
 
 }

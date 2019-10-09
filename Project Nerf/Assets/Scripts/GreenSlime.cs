@@ -33,7 +33,6 @@ public class GreenSlime : EnemyParent
      * Start()
      *
      * Built in Unity function. Start is called before the first frame update
-     *
      */
     void Start()
     {
@@ -52,7 +51,6 @@ public class GreenSlime : EnemyParent
      * Update()
      *
      * Built in Unity function. Update is called every frame
-     *
      */
     void Update()
     {
@@ -66,7 +64,6 @@ public class GreenSlime : EnemyParent
      *
      * This funtion checks the enemy distance with the player's (AKA target) and
      *  moves towards the player if they are within range.
-     *
      */
     void checkDistance()
     {
@@ -91,7 +88,7 @@ public class GreenSlime : EnemyParent
           currentState = changeState(currentState, EnemyState.walking);
 
           //TODO IDEA this slime jumps when he moves, but others could roll, just play the idle animation, or do a combination
-          /* set the moving animator bool to true, so we can play the walking animation */
+          /* set the moving animator bool to true, so we can play the moving animation */
           slimeAnimator.SetBool("isMoving", true);
         }
       }
@@ -105,13 +102,12 @@ public class GreenSlime : EnemyParent
     }
 
     /**
-     * slimeDeath()
+     * death()
      *
      * Defines what happens when the slime dies. Death animation should play, it
      *  should stop moving, and be removed from the scene
-     *
      */
-    public void death()
+    void death()
     {
       /* set the boolean for the death animation to be true */
       slimeAnimator.SetBool("isDead", true);
@@ -130,7 +126,6 @@ public class GreenSlime : EnemyParent
      *
      * This will be used to set the enemy as inactive when it dies, which will make
      *  it disappear
-     *
      */
     private IEnumerator removeSlime()
     {
