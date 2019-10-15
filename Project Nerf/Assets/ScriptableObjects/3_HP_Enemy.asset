@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6934d1a26aa41b9bf309476a59dcbd, type: 3}
   m_Name: 3_HP_Enemy
   m_EditorClassIdentifier: 
-  initialValue: 0
+  initialValue: 3
