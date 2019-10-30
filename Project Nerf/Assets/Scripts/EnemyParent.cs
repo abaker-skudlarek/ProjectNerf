@@ -64,13 +64,13 @@ public class EnemyParent : MonoBehaviour
      */
     public EnemyState changeState(EnemyState currentState, EnemyState newState)
     {
-        if(currentState != newState)
-        {
-          return newState;
-        }
+      if(currentState != newState)
+      {
+        return newState;
+      }
 
-        /* return current state if they are the same */
-        return currentState;
+      /* return current state if they are the same */
+      return currentState;
     }
 
     /**
@@ -128,7 +128,7 @@ public class EnemyParent : MonoBehaviour
      * @param damage: The amount of damage that the hit does, will be subtracted
      *                  from the HP of the enemy
      */
-    private void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
       /* subtract the damage from the current HP of the enemy */
       enemyCurrHealth -= damage;
@@ -137,7 +137,7 @@ public class EnemyParent : MonoBehaviour
       if(enemyCurrHealth <= 0)
       {
         //FIXME need to call the death animation for the enemy slime here, not working though
-        //this.gameObject.death();
+        //this.gameObject.deathHandler();
         this.gameObject.SetActive(false);
 
       }

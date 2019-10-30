@@ -23,16 +23,48 @@ using UnityEngine;
  *  or update functions. */
 
 [CreateAssetMenu] /* this allows us to create this as an object by right clicking */
-public class FloatValue : ScriptableObject
+public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
   /***** Variables *****/
 
   /* -- Private -- */
 
   /* -- Public -- */
-  public float initialValue;
+
+  public float initialValue; /* initial value of the float */
+
+  [HideInInspector] /* means it won't appear in inspector */
+  public float runtimeValue; /* running value of the float */
 
 
   /***** Functions *****/
+
+  /**
+   * OnAfterDeserialize()
+   *
+   * Needed to inherit from ISerializationCallbackReceiver. Allows scriptable
+   *  objects to be set from the start, similar to the start function on objects.
+   * If we didn't do this, things like playerHP would stay 0 when they die,
+   *  even after a new game has been started.
+   */
+  public void OnAfterDeserialize()
+  {
+    /* reset the float to it's initial value on every new game reset */
+    runtimeValue = initialValue;
+  }
+
+  /**
+   * OnBeforeSerialize()
+   *
+   * Needed to inherit from ISerializationCallbackReceiver. Allows scriptable
+   *  objects to be set from the start, similar to the start function on objects.
+   * If we didn't do this, things like playerHP would stay 0 when they die,
+   *  even after a new game has been started.
+   */
+  public void OnBeforeSerialize()
+  {
+
+  }
+
 
 }

@@ -3,7 +3,15 @@ guid: cce6326a2373c3748914c23a04b100dc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fullHeart: {fileID: 456487351040566780, guid: 76f67f52fc697814b9d49b926de31775,
+      type: 3}
+  - halfHeart: {fileID: 6972319533422389877, guid: 76f67f52fc697814b9d49b926de31775,
+      type: 3}
+  - emptyHeart: {fileID: -2151635242788516724, guid: 76f67f52fc697814b9d49b926de31775,
+      type: 3}
+  - heartContainers: {fileID: 11400000, guid: afd916caeb8f68b4bad495a82348f242, type: 2}
+  - playerCurrHealth: {fileID: 11400000, guid: 3bef6824abc9ffa48b918c696960ade4, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

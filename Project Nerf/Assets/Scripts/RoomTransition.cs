@@ -54,7 +54,7 @@ public class RoomTransition : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
       /* if it's the player in the trigger */
-      if(otherCollider.CompareTag("Player"))
+      if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger)
       {
         /* adjust the camera max and min position. not just one variable because
          *  the rooms are not square */

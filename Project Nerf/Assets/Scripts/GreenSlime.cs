@@ -56,7 +56,6 @@ public class GreenSlime : EnemyParent
     {
       /* check the distance between the player and the slime, move towards player */
       checkDistance();
-
     }
 
     /**
@@ -102,12 +101,12 @@ public class GreenSlime : EnemyParent
     }
 
     /**
-     * death()
+     * deathHandler()
      *
      * Defines what happens when the slime dies. Death animation should play, it
      *  should stop moving, and be removed from the scene
      */
-    void death()
+    public void deathHandler()
     {
       /* set the boolean for the death animation to be true */
       slimeAnimator.SetBool("isDead", true);
@@ -118,7 +117,6 @@ public class GreenSlime : EnemyParent
 
       /* start coroutine to remove the slime */
       StartCoroutine(removeSlime());
-
     }
 
     /**
@@ -134,7 +132,6 @@ public class GreenSlime : EnemyParent
 
       /* set the game object to inactive, making it invisible */
       this.gameObject.SetActive(false);
-
     }
 
 }
