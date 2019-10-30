@@ -1,5 +1,5 @@
 /**
- *  @file EnemyAI.cs
+ *  @file EnemyParent.cs
  *
  *  @brief Parent class for all enemies. Defines the basic characteristics of
  *          what every enemy should have
@@ -136,9 +136,9 @@ public class EnemyParent : MonoBehaviour
       /* call the death function if the HP is at or below 0 */
       if(enemyCurrHealth <= 0)
       {
-        //FIXME need to call the death animation for the enemy slime here, not working though
-        //this.gameObject.deathHandler();
-        this.gameObject.SetActive(false);
+        // FIXME this works, but only for the GreenSlime. Adding new enemies will
+        //        mean that this needs to be more universal
+        this.GetComponent<GreenSlime>().deathHandler();
 
       }
     }
