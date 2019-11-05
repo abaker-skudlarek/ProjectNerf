@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6934d1a26aa41b9bf309476a59dcbd, type: 3}
-  m_Name: 3_HP_Enemy
+  m_Script: {fileID: 11500000, guid: 08e983bf8985a47d3b78dd62bd7e4a95, type: 3}
+  m_Name: BlackKey
   m_EditorClassIdentifier: 
-  initialValue: 3
+  itemSprite: {fileID: -150438613431425412, guid: edf14fc3922024adf8c1bad2d6dad927,
+    type: 3}
+  itemDescription: 'A small black key. It probably opens a door. '
+  isKey: 1

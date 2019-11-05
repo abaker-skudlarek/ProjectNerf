@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
   private Rigidbody2D playerRigidBody; /* player's Rigidbody2D */
   private Vector3 speedChange;         /* change in speed for the player */
   private Animator playerAnimator;     /* player's animator */
-  private bool facingRight;     /* whether the player is facing right or not */
+  private bool facingRight;            /* whether the player is facing right or not */
 
   /* -- Public -- */
   //TODO decide on a good initial values for being powerful, should have room to scale down

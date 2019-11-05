@@ -20,7 +20,6 @@ public class GameObjectParent : MonoBehaviour
 
 
     /* -- Public -- */
-    public Signal context;     /* object's signal */
     public bool playerInRange; /* true if the player is in range of the object */
 
 
@@ -50,8 +49,8 @@ public class GameObjectParent : MonoBehaviour
     /**
      * OnTriggerEnter2D(Collider2d)
      *
-     * Executes when this object is triggered. This function will raise the context
-     *  signal and set playerInRange = true if the player is the one triggering it
+     * Executes when this object is triggered. This function will check to see if the
+     *  player is in the trigger zone and set playerInRange = true if so
      *
      * @param otherCollider: The thing that is colliding into the object this is
      *                        attached to
@@ -60,9 +59,6 @@ public class GameObjectParent : MonoBehaviour
     {
       if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger)
       {
-        /* raise the context signal */
-        context.Raise();
-
         /* set player in range to true */
         playerInRange = true;
 
@@ -73,8 +69,8 @@ public class GameObjectParent : MonoBehaviour
     /**
      * OnTriggerExit2D(Collider2d)
      *
-     * Executes when this object is done being triggered. Raises the signal again
-     *  and sets the playerInRange = false
+     * Executes when this object is done being triggered. This will check to see
+     *  is the player exits the trigger zone and set playerInRange = false if so
      *
      * @param otherCollider: The thing that is colliding into the object this is
      *                        attached to
@@ -83,12 +79,9 @@ public class GameObjectParent : MonoBehaviour
     {
       if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger)
       {
-        /* raise the context signal */
-        context.Raise();
-
         /* set player in range to false */
         playerInRange = false;
-      }    
+      }
 
     }
 
