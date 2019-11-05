@@ -22,14 +22,22 @@ public class TreasureChest : GameObjectParent
 
     /***** Functions *****/
 
-    // Start is called before the first frame update
+    /**
+     * Start()
+     *
+     * Built in Unity function. Start is called before the first frame update
+     */
     void Start()
     {
       /* get the animator for the chest */
       chestAnim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    /**
+     * Update()
+     *
+     * Built in Unity function. Update is called every frame
+     */
     void Update()
     {
       /* check for the player pressing space and in range of the chest */
@@ -50,6 +58,12 @@ public class TreasureChest : GameObjectParent
 
     }
 
+    /**
+     * openChest()
+     *
+     * Adds the contents of the chest to the player's inventory and raises the
+     *  signal attached to it
+     */
     public void openChest()
     {
       // TODO dialogWindow.SetActive(true);
@@ -62,22 +76,71 @@ public class TreasureChest : GameObjectParent
       /* raise the signal that the item is being grabbed */
       raiseItem.raise();
 
-      /* set the chest as opend */
+      /* set the chest as opened */
       isOpen = true;
+
+      chestAnim.SetBool("isOpened", true);
 
       //TODO context.raise();
 
     }
 
+    /**
+     * cannotOpenChest()
+     *
+     * Called when the chest has already been opened. Raises item's signal
+     */
     public void cannotOpenChest()
     {
       // TODO dialogWindow.SetActive(false);
 
-      /* set current item to empty */
-      playerInventory.currentItem = null;
-
       /* tell the signal to stop being raised (mainly for animation) */
       raiseItem.raise();
+
+    }
+
+    /**
+     * OnTriggerEnter2D(Collider2d)
+     *
+     * Executes when this object is triggered. This function will check to see if the
+     *  player is in the trigger zone and set playerInRange = true if so
+     *
+     * @param otherCollider: The thing that is colliding into the object this is
+     *                        attached to
+     */
+    private void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+      if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger
+          && isOpen == false)
+      {
+        /* set player in range to true */
+        playerInRange = true;
+
+        //TODO context.raise();
+
+      }
+
+    }
+
+    /**
+     * OnTriggerExit2D(Collider2d)
+     *
+     * Executes when this object is done being triggered. This will check to see
+     *  is the player exits the trigger zone and set playerInRange = false if so
+     *
+     * @param otherCollider: The thing that is colliding into the object this is
+     *                        attached to
+     */
+    private void OnTriggerExit2D(Collider2D otherCollider)
+    {
+      if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger
+          && isOpen == false)
+      {
+        /* set player in range to false */
+        playerInRange = false;
+
+        //TODO context.raise();
+      }
 
     }
 

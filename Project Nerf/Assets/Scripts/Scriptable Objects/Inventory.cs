@@ -19,6 +19,8 @@ public class Inventory : ScriptableObject
 
   public void addItem(Item itemAdded)
   {
+    Debug.Log("inventory addItem() called");
+    
     /* check if item is key */
     if(itemAdded.isKey == true)
     {

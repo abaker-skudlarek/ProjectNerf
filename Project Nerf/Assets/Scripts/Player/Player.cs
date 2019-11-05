@@ -18,7 +18,8 @@ public enum PlayerState
   walking,
   attacking,
   idle,
-  staggered
+  staggered,
+  interacting
 }
 
 public class Player : MonoBehaviour
@@ -37,9 +38,10 @@ public class Player : MonoBehaviour
   public PlayerState currentState;            /* the current state the player is in */
   public FloatValue currHealth;               /* current HP of the player */
   public ScriptableSignal playerHealthSignal; /* signal for the player's health */
+  public Inventory playerInventory;           /* player's inventory */
   public double baseDamage;                   /* base damage for the player */
-  public double currDamage;                   /* current damage for the player,
-                                                  could be changed by multiple things */
+  public double currDamage;                   /* current damage for the player */
+  public SpriteRenderer itemSprite;           /* sprite for the item being received */
 
   /***** Functions *****/
 
@@ -71,6 +73,13 @@ public class Player : MonoBehaviour
    */
   void Update()
   {
+    /* if the player is interacting with something we don't want to be able to
+     *  move, so return from the function and don't process any actions */
+    if(currentState == PlayerState.interacting)
+    {
+      return;
+    }
+
     /* always start with the change at zero each frame */
     speedChange = Vector3.zero;
 
@@ -81,8 +90,7 @@ public class Player : MonoBehaviour
     speedChange.x = Input.GetAxisRaw("Horizontal");
     speedChange.y = Input.GetAxisRaw("Vertical");
 
-    /* determine if the player wants to move or attack and what to do based
-     *  on that */
+    /* determine if the player wants to move or attack and what to do based on that */
     processPlayerActions();
   }
 
@@ -150,32 +158,13 @@ public class Player : MonoBehaviour
     /* wait the length of the attack animation */
     yield return new WaitForSeconds(.92f);
 
-    /* set the player state back to idle */
-    currentState = PlayerState.idle;
+    /* set the player state back to idle as long as they are not currently interacting
+     *  with something */
+    if(currentState != PlayerState.interacting)
+    {
+      currentState = PlayerState.idle;
+    }
   }
-
-  /**
-    //NOTE this function isn't being used right now. It's functionality has
-            been relocated to the knockback script, which is attached to the
-            player's hitbox, so it made more sense to put it there. I'm leaving
-            this here for now just in case I decide to revert back to how it was
-
-   * OnTriggerEnter2D(Collider2d)
-   *
-   * When the player attacks something tagged as an enemy, this will fire
-   *
-   * @param otherCollider: The thing that is being attacked
-   *
-   */
-  //private void OnTriggerEnter2D(Collider2D otherCollider)
-  //{
-    /* if the thing that is being collided into is tagged as an enemy */
-  //  if(otherCollider.gameObject.CompareTag("enemy"))
-  //  {
-      /* call the death animation for the enemy slime */
-      //otherCollider.GetComponent<GreenSlime>().slimeDeath();
-   // }
-  //}
 
   /**
    * animationAndMovementHandler()
@@ -307,5 +296,37 @@ public class Player : MonoBehaviour
       playerRigidBody.velocity = Vector2.zero;
     }
   }
+
+  public void raiseItem()
+  {
+    Debug.Log("player raiseItem() called");
+
+    /* only do this if there is an item to receive */
+    if(playerInventory.currentItem != null)
+    {
+      if(currentState != PlayerState.interacting)
+      {
+        //TODO this is for adding an interacting animation to the player
+        //TODO playerAnimator.SetBool("receiveItem", true)
+
+        /* set the state to interacting */
+        currentState = PlayerState.interacting;
+
+        /* set the sprite of the received item to the sprite of the inventory's current item */
+        itemSprite.sprite = playerInventory.currentItem.itemSprite;
+      }
+      else
+      {
+        //TODO playerAnimator.SetBool("receiveItem", false);
+
+        /* reset player to idle */
+        currentState = PlayerState.idle;
+
+        /* reset sprite to null so the item preview goes away */
+        itemSprite.sprite = null;
+      }
+    }
+  }
+
 
 }

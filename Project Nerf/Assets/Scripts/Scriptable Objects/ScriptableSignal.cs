@@ -29,7 +29,7 @@ public class ScriptableSignal : ScriptableObject
    */
   public void raise()
   {
-    Debug.Log("raise called");
+    Debug.Log("scriptable signal raise() called");
     Debug.Log("Signal listener count: " + signalListeners.Count);
 
     for(int i = signalListeners.Count - 1; i >= 0; i--)
@@ -46,7 +46,9 @@ public class ScriptableSignal : ScriptableObject
    */
   public void registerListener(SignalListener listener)
   {
-    Debug.Log("registerListener called");
+    //TODO this is never called, could be the reason that the signal listeners list is empty
+    
+    Debug.Log("scriptable signal registerListener() called");
 
     signalListeners.Add(listener);
   }
