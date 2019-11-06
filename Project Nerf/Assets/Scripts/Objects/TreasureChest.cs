@@ -79,6 +79,7 @@ public class TreasureChest : GameObjectParent
       /* set the chest as opened */
       isOpen = true;
 
+      /* set the bool to open the chest */
       chestAnim.SetBool("isOpened", true);
 
       //TODO context.raise();
