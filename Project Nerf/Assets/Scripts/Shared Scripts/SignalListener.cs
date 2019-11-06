@@ -24,24 +24,33 @@ public class SignalListener : MonoBehaviour
 
   /***** Functions *****/
 
+  /**
+   * onSignalRaised()
+   *
+   * Invokes the signal using the signalEvent
+   */
   public void onSignalRaised()
   {
-    Debug.Log("onSignalRaised called");
-
     signalEvent.Invoke();
   }
 
-  private void onEnable()
+  /**
+   * OnEnable()
+   *
+   * Built in Unity function. Registers the signal that is passed
+   */
+  private void OnEnable()
   {
-    Debug.Log("onEnable called");
-
     signal.registerListener(this);
   }
 
-  private void onDisable()
+  /**
+   * OnDisable()
+   *
+   * Built in Unity function. Deregisters the signal that is passed
+   */
+  private void OnDisable()
   {
-    Debug.Log("onDisable called");
-
     signal.deRegisterListener(this);
   }
 

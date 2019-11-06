@@ -29,12 +29,8 @@ public class ScriptableSignal : ScriptableObject
    */
   public void raise()
   {
-    Debug.Log("scriptable signal raise() called");
-    Debug.Log("Signal listener count: " + signalListeners.Count);
-
     for(int i = signalListeners.Count - 1; i >= 0; i--)
     {
-      Debug.Log("before onSignalRaised");
       signalListeners[i].onSignalRaised();
     }
   }
@@ -46,10 +42,6 @@ public class ScriptableSignal : ScriptableObject
    */
   public void registerListener(SignalListener listener)
   {
-    //TODO this is never called, could be the reason that the signal listeners list is empty
-    
-    Debug.Log("scriptable signal registerListener() called");
-
     signalListeners.Add(listener);
   }
 
@@ -60,8 +52,6 @@ public class ScriptableSignal : ScriptableObject
    */
   public void deRegisterListener(SignalListener listener)
   {
-    Debug.Log("deRegisterListener called");
-
     signalListeners.Remove(listener);
   }
 

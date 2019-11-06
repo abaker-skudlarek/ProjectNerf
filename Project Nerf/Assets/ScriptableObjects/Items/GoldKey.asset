@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08e983bf8985a47d3b78dd62bd7e4a95, type: 3}
-  m_Name: BlackKey
+  m_Name: GoldKey
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: -150438613431425412, guid: edf14fc3922024adf8c1bad2d6dad927,
+  itemSprite: {fileID: 6035140928766319377, guid: edf14fc3922024adf8c1bad2d6dad927,
     type: 3}
-  itemDescription: A small black key. What could it open?
+  itemDescription: A small gold key. It probably opens a door.
   isKey: 1
