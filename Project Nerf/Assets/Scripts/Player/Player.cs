@@ -19,7 +19,8 @@ public enum PlayerState
   attacking,
   idle,
   staggered,
-  interacting
+  interacting,
+  dead
 }
 
 public class Player : MonoBehaviour
@@ -75,10 +76,11 @@ public class Player : MonoBehaviour
   {
     /* if the player is interacting with something we don't want to be able to
      *  move, so return from the function and don't process any actions */
-    if(currentState == PlayerState.interacting)
+    if(currentState == PlayerState.interacting || currentState == PlayerState.dead)
     {
       return;
     }
+
 
     /* always start with the change at zero each frame */
     speedChange = Vector3.zero;
@@ -265,10 +267,48 @@ public class Player : MonoBehaviour
     /* player is dead, HP <= 0 */
     else
     {
-      //FIXME temporary "player death"
-      this.gameObject.SetActive(false);
+      deathHandler();
     }
 
+  }
+
+  /**
+   * deathHandler()
+   *
+   * Defines what happens when the player dies. Death animation should play, it
+   *  should stop moving, and be removed from the scene
+   */
+  public void deathHandler()
+  {
+    /* set state equal to dead */
+    currentState = PlayerState.dead;
+
+    /* set speed to 0 so we can't move after death */
+    playerSpeed = 0;
+
+    /* make the speed change zero after death */
+    speedChange = Vector3.zero;
+
+    /* set boolean for death animation to be true */
+    playerAnimator.SetBool("isDead", true);
+
+    /* start coroutine to remove the player */
+    StartCoroutine(removePlayer());
+  }
+
+  /**
+   * removePlayer()
+   *
+   * This will be used to set the player as inactive when it dies, which will make
+   *  it disappear
+   */
+  private IEnumerator removePlayer()
+  {
+    /* wait for roughly the time of the animation */
+    yield return new WaitForSeconds(1.3f);
+
+    /* set the game object to inactive, making it invisible */
+    this.gameObject.SetActive(false);
   }
 
   /**
@@ -299,14 +339,13 @@ public class Player : MonoBehaviour
 
   public void raiseItem()
   {
-    Debug.Log("player raiseItem() called");
-
     /* only do this if there is an item to receive */
     if(playerInventory.currentItem != null)
     {
       if(currentState != PlayerState.interacting)
       {
-        //TODO this is for adding an interacting animation to the player
+        //TODO this is for adding an interacting animation to the player,
+        //      there was none provided, so I'm not sure if it will be added
         //TODO playerAnimator.SetBool("receiveItem", true)
 
         /* set the state to interacting */

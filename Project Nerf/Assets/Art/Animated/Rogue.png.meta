@@ -118,34 +118,34 @@ TextureImporter:
     second: Rogue_37_attack10
   - first:
       213: 6746760739605462825
-    second: Rogue_38
+    second: Rogue_38_Death_0
   - first:
       213: -137506050308853739
-    second: Rogue_39
+    second: Rogue_39_Death_1
   - first:
       213: 2419962495090222557
-    second: Rogue_40
+    second: Rogue_40_Death_2
   - first:
       213: -3644441841831859451
-    second: Rogue_41
+    second: Rogue_41_Death_3
   - first:
       213: -1676175015942042067
-    second: Rogue_42
+    second: Rogue_42_Death_4
   - first:
       213: -1508685177652777518
-    second: Rogue_43
+    second: Rogue_43_Death_5
   - first:
       213: -824844571744912134
-    second: Rogue_44
+    second: Rogue_44_Death_6
   - first:
       213: -4178795942286976970
-    second: Rogue_45
+    second: Rogue_45_Death_7
   - first:
       213: -5153320188895550283
-    second: Rogue_46
+    second: Rogue_46_Death_8
   - first:
       213: 1674069755327442884
-    second: Rogue_47
+    second: Rogue_47_Death_9
   - first:
       213: 7542497094475406524
     second: Rogue_48
@@ -1184,7 +1184,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_38
+      name: Rogue_38_Death_0
       rect:
         serializedVersion: 2
         x: 9
@@ -1205,7 +1205,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_39
+      name: Rogue_39_Death_1
       rect:
         serializedVersion: 2
         x: 41
@@ -1226,7 +1226,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_40
+      name: Rogue_40_Death_2
       rect:
         serializedVersion: 2
         x: 74
@@ -1247,7 +1247,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_41
+      name: Rogue_41_Death_3
       rect:
         serializedVersion: 2
         x: 106
@@ -1268,7 +1268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_42
+      name: Rogue_42_Death_4
       rect:
         serializedVersion: 2
         x: 138
@@ -1289,7 +1289,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_43
+      name: Rogue_43_Death_5
       rect:
         serializedVersion: 2
         x: 172
@@ -1310,7 +1310,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_44
+      name: Rogue_44_Death_6
       rect:
         serializedVersion: 2
         x: 204
@@ -1331,7 +1331,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_45
+      name: Rogue_45_Death_7
       rect:
         serializedVersion: 2
         x: 234
@@ -1352,7 +1352,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_46
+      name: Rogue_46_Death_8
       rect:
         serializedVersion: 2
         x: 263
@@ -1373,7 +1373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rogue_47
+      name: Rogue_47_Death_9
       rect:
         serializedVersion: 2
         x: 294

@@ -17,15 +17,15 @@ public class GreenSlime : EnemyParent
     /***** Variables *****/
 
     /* -- Private -- */
-    private Animator slimeAnimator;
-    private Rigidbody2D slimeBody;
 
     /* -- Public -- */
+    public Rigidbody2D slimeBody;  /* rigidbody reference */
+    public Animator slimeAnimator; /* animator reference */
+    public Transform target;       /* what the enemy is set to chase */
     public float chaseRadius;      /* the radius that the enemy will chase at */
     public float attackRadius;     /* the radius that the enemy will attack at */
     public Transform homePosition; /* where to move back to when the player
                                        moves out of radius from the enemy */
-    public Transform target;       /* what the enemy is set to chase */
 
     /***** Functions *****/
 
@@ -64,7 +64,7 @@ public class GreenSlime : EnemyParent
      * This funtion checks the enemy distance with the player's (AKA target) and
      *  moves towards the player if they are within range.
      */
-    void checkDistance()
+    public virtual void checkDistance()
     {
       /* if the distance is less than the chase radius AND greater than the attack radius */
       if(Vector3.Distance(target.position, transform.position) <= chaseRadius
@@ -86,7 +86,7 @@ public class GreenSlime : EnemyParent
               if it's already in the walking state */
           currentState = changeState(currentState, EnemyState.walking);
 
-          //TODO IDEA this slime jumps when he moves, but others could roll, just play the idle animation, or do a combination
+          //IDEA this slime jumps when he moves, but others could roll, just play the idle animation, or do a combination
           /* set the moving animator bool to true, so we can play the moving animation */
           slimeAnimator.SetBool("isMoving", true);
         }

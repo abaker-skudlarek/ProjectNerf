@@ -74,7 +74,9 @@ public class Knockback : MonoBehaviour
         //      so we would call the parent classes childDeath() function (or something)
         if(this.gameObject.tag != "enemy")
         {
-         // otherCollider.GetComponent<GreenSlime>().death();
+          /* NOTE this functionality is currently in the EnemyParent script, so this does nothing.
+              later something like this might be used, but it works in the parent so far */
+          // otherCollider.GetComponent<GreenSlime>().death();
         }
 
       }

@@ -40,8 +40,6 @@ public class HeartManager : MonoBehaviour
      */
     void Start()
     {
-      Debug.Log("heartmanager start called");
-
       initHearts();
     }
 
@@ -53,8 +51,6 @@ public class HeartManager : MonoBehaviour
      */
     public void initHearts()
     {
-      Debug.Log("heartmanager init called");
-
       for(int i = 0; i < heartContainers.initialValue; i++)
       {
         hearts[i].gameObject.SetActive(true);
@@ -70,8 +66,6 @@ public class HeartManager : MonoBehaviour
      */
     public void updateHearts()
     {
-      Debug.Log("Update hearts called");
-
       /* dividing by two because we want to take half hearts into consideration */
       float tempHP = playerCurrHealth.runtimeValue / 2;
 
@@ -81,25 +75,20 @@ public class HeartManager : MonoBehaviour
       {
         if(i <= tempHP - 1)
         {
-          Debug.Log("full heart called");
-
           /* set the heart to full */
           hearts[i].sprite = fullHeart;
         }
         else if(i >= tempHP)
         {
-          Debug.Log("empty heart called");
           /* set the heart to empty */
           hearts[i].sprite = emptyHeart;
         }
         else
         {
-          Debug.Log("half heart called");
           /* set the heart to half */
           hearts[i].sprite = halfHeart;
         }
       }
     }
-
 
 }
