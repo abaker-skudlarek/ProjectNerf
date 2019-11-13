@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
   public double baseDamage;                   /* base damage for the player */
   public double currDamage;                   /* current damage for the player */
   public SpriteRenderer itemSprite;           /* sprite for the item being received */
+  public ScriptableSignal playerHit;          /* signal for when the player is hit */
 
   /***** Functions *****/
 
@@ -321,6 +322,9 @@ public class Player : MonoBehaviour
    */
   private IEnumerator knockbackCoroutine(float knockbackTime)
   {
+    /* raise the signal to let everyone subscribed know the player was hit */
+    playerHit.raise();
+    
     if(playerRigidBody != null)
     {
       /* wait for the amount of time for the knockback */

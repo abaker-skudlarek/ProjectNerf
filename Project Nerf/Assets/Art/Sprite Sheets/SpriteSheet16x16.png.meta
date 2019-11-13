@@ -655,25 +655,25 @@ TextureImporter:
     second: SpriteSheet16x16_216
   - first:
       213: -7662994118564970450
-    second: SpriteSheet16x16_217
+    second: Potion_Red
   - first:
       213: 935930674572200304
-    second: SpriteSheet16x16_218
+    second: Potion_Purple
   - first:
       213: -3026754935796865843
-    second: SpriteSheet16x16_219
+    second: Potion_Teal
   - first:
       213: 3165318926858236204
-    second: SpriteSheet16x16_220
+    second: Potion_Green
   - first:
       213: -7838684372080014584
-    second: SpriteSheet16x16_221
+    second: Potion_Yellow
   - first:
       213: -4601384804373122848
-    second: SpriteSheet16x16_222
+    second: Potion_Pink
   - first:
       213: -429970980691107537
-    second: SpriteSheet16x16_223
+    second: Potion_Black
   - first:
       213: 4206641465204720737
     second: SpriteSheet16x16_224
@@ -5567,15 +5567,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_217
+      name: Potion_Red
       rect:
         serializedVersion: 2
         x: 0
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4717551, y: 0.17518425}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5588,15 +5588,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_218
+      name: Potion_Purple
       rect:
         serializedVersion: 2
         x: 16
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47175467, y: 0.20342922}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5609,15 +5609,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_219
+      name: Potion_Teal
       rect:
         serializedVersion: 2
         x: 32
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47175527, y: 0.20342922}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5630,15 +5630,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_220
+      name: Potion_Green
       rect:
         serializedVersion: 2
         x: 48
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.47175527, y: 0.18930626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5651,15 +5651,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_221
+      name: Potion_Yellow
       rect:
         serializedVersion: 2
         x: 64
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.20342922}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5672,15 +5672,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_222
+      name: Potion_Pink
       rect:
         serializedVersion: 2
         x: 80
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4717555, y: 0.18930626}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -5693,15 +5693,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_223
+      name: Potion_Black
       rect:
         serializedVersion: 2
         x: 96
         y: 160
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4717555, y: 0.20342922}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
