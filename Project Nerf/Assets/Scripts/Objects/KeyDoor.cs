@@ -15,7 +15,8 @@ using UnityEngine;
 public enum DoorType
 {
   key,
-  enemy
+  enemy,
+  lever
 }
 
 public class KeyDoor : GameObjectParent

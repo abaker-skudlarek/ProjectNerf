@@ -70,17 +70,32 @@ public class CameraMovement : MonoBehaviour
     }
   }
 
+  /**
+   * startScreenKick()
+   *
+   * Starts the camera kick when the player gets hit. Sets the bool for the
+   *  animation and starts the kick coroutine
+   */
   public void startScreenKick()
   {
+    /* set bool to true to start the kick animation */
     camAnimator.SetBool("kickActive", true);
 
+    /* start the coroutine for the kick */
     StartCoroutine(kickCoroutine());
   }
 
+  /**
+   * kickCoroutine()
+   *
+   * Coroutine for the kick. Waits and then turns off the animation for the kick
+   */
   public IEnumerator kickCoroutine()
   {
+    /* waits for a frame */
     yield return null;
 
+    /* set the bool to false to finish the animation */
     camAnimator.SetBool("kickActive", false);
   }
 

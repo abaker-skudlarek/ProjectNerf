@@ -25,6 +25,7 @@ using UnityEngine;
 [CreateAssetMenu] /* this allows us to create this as an object by right clicking */
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
+
   /***** Variables *****/
 
   /* -- Private -- */
