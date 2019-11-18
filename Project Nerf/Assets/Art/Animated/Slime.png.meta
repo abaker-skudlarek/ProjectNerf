@@ -122,6 +122,66 @@ TextureImporter:
   - first:
       213: 2083464259699928970
     second: Slime_0_Jump9
+  - first:
+      213: 6764058825923739229
+    second: RedSlime_0
+  - first:
+      213: 722630155412874673
+    second: RedSlime_1
+  - first:
+      213: 3046003460404435098
+    second: RedSlime_2
+  - first:
+      213: 4638331068293285299
+    second: RedSlime_3
+  - first:
+      213: 547937520001160759
+    second: RedSlime_4
+  - first:
+      213: 5121386627147042911
+    second: RedSlime_5
+  - first:
+      213: 1256673307609452168
+    second: RedSlime_6
+  - first:
+      213: -1688989783761331636
+    second: RedSlime_7
+  - first:
+      213: -8326904878406465551
+    second: RedSlime_8
+  - first:
+      213: -7871994177459812673
+    second: RedSlime_9
+  - first:
+      213: 4809906197739305226
+    second: RedSlime_Spit_0
+  - first:
+      213: -6243562790589928217
+    second: RedSlime_Spit_1
+  - first:
+      213: -5003090658045248457
+    second: RedSlime_Spit_2
+  - first:
+      213: -1360824433137331126
+    second: RedSlime_Spit_3
+  - first:
+      213: -4112167302210287569
+    second: RedSlime_Spit_4
+  - first:
+      213: -5514839475699927256
+    second: RedSlime_Spit_5
+  - first:
+      213: -2787840857731087699
+    second: RedSlime_Spit_6
+  - first:
+      213: 2296209360114915723
+    second: RedSlime_Spit_7
+  - first:
+      213: -565470669348759117
+    second: RedSlime_Spit_8
+  - first:
+      213: 135479129896700117
+    second: RedSlime_Spit_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1041,6 +1101,426 @@ TextureImporter:
       bones: []
       spriteID: e55cdff4943324437b0977f28b330750
       internalID: 2083464259699928970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9fbf4366b84e4db99306465a0515c60
+      internalID: 6764058825923739229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f6c75875efe4c5db5c0cb2107e859e
+      internalID: 722630155412874673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6522d341f8b414b8b81aae50b61d81f1
+      internalID: 3046003460404435098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41956a6d90f1d4b2b92c330947752e7e
+      internalID: 4638331068293285299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 105c97b95168f4444a60a95223fd98ba
+      internalID: 547937520001160759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c73e54fdb124434a7763d99524dd3b
+      internalID: 5121386627147042911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73a7104cd4a3489bb68c42aa565abcc
+      internalID: 1256673307609452168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_7
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47e97a3fe3d524ebab5472e86bdd8a2c
+      internalID: -1688989783761331636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969082a6dfe1e4b78bbe887ed8eff972
+      internalID: -8326904878406465551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e999087b40f54163b8557d4a69c4655
+      internalID: -7871994177459812673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e37e6a66e6844e69eb9d127b6415e1
+      internalID: 4809906197739305226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563d309c15fc6419ebc76a594585c2c6
+      internalID: -6243562790589928217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4b945d5702974ba599a5f92e5ec6e8d
+      internalID: -5003090658045248457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff87b5de8bbe416694813c96ce8d655
+      internalID: -1360824433137331126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97d7845d6ed14c8fa0bc3f7fa937770
+      internalID: -4112167302210287569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ccfc4976c094c7dab392342881f630
+      internalID: -5514839475699927256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60725fd9249cf4844923e4ff4065618e
+      internalID: -2787840857731087699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_7
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 192
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb0921e0207c4b0cbc399dcf1e63a18
+      internalID: 2296209360114915723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_8
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 192
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e1f1a20711e43fe8e315cdf13eabae
+      internalID: -565470669348759117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RedSlime_Spit_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180296c8e46a5489880f6c8b7958fb5e
+      internalID: 135479129896700117
       vertices: []
       indices: 
       edges: []

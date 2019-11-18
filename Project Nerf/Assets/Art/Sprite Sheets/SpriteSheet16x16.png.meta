@@ -574,7 +574,7 @@ TextureImporter:
     second: SpriteSheet16x16_189
   - first:
       213: 48258352179246529
-    second: SpriteSheet16x16_190
+    second: Red_Projectile
   - first:
       213: -3384971374115805338
     second: SpriteSheet16x16_191
@@ -5000,13 +5000,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet16x16_190
+      name: Red_Projectile
       rect:
         serializedVersion: 2
-        x: 48
+        x: 54
         y: 192
-        width: 16
-        height: 16
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

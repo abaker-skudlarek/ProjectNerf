@@ -19,7 +19,7 @@ public enum DoorType
   lever
 }
 
-public class KeyDoor : GameObjectParent
+public class Door : GameObjectParent
 {
   /***** Variables *****/
 

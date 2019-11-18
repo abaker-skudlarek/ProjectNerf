@@ -22,6 +22,7 @@ public class PotionHealth : ConsumableParent
   public FloatValue heartContainers; /* the amount of heart containers the player has */
   public FloatValue playerHealth;    /* float value reference to the player's health */
   public float healthIncrease;       /* amount that we are going to increase the health with the potion */
+  public float totalIncrease;        /* placeholder for the health the player will get */
 
   /***** Functions *****/
 
@@ -54,24 +55,28 @@ public class PotionHealth : ConsumableParent
     /* we only want the player to be able to trigger this code */
     if(otherCollider.CompareTag("Player") && !otherCollider.isTrigger)
     {
-      /* increase the runtime value of the player's health by the amount to increase */
-      playerHealth.runtimeValue += healthIncrease;
+      totalIncrease = playerHealth.runtimeValue += healthIncrease;
 
-      /* if the increase would increase the amount of health past the maximum the
-          player is allowed, just set it equal to the maximum. This is just a
-          health potion, not a new health container */
-      if(playerHealth.initialValue > heartContainers.runtimeValue * 2f)
+      if(totalIncrease < playerHealth.initialValue)
       {
-        playerHealth.initialValue = heartContainers.runtimeValue * 2f;
+        /* increase the runtime value of the player's health by the amount to increase */
+        //playerHealth.runtimeValue += healthIncrease;
+
+        /* if the increase would increase the amount of health past the maximum the
+            player is allowed, just set it equal to the maximum. This is just a
+            health potion, not a new health container */
+        if(playerHealth.initialValue > heartContainers.runtimeValue * 2f)
+        {
+          playerHealth.initialValue = heartContainers.runtimeValue * 2f;
+        }
+
+        /* raise the signal for the consumable */
+        consumableSignal.raise();
+
+        /* destroy the potion after it has been used so it is removed from the game */
+        Destroy(this.gameObject);
       }
-
-      /* raise the signal for the consumable */
-      consumableSignal.raise();
-
-      /* destroy the potion after it has been used so it is removed from the game */
-      Destroy(this.gameObject);
     }
-
   }
 
 
