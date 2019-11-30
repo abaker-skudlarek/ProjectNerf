@@ -1,3 +1,13 @@
+/**
+ *  @file Lever.cs
+ *
+ *  @brief Defines the lever that will be associated with a door in the world.
+ *          When the player walks over the lever it opens the door.
+ *
+ *  @author: Alex Baker
+ *  @date:   Novermber 15 2019
+ */
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +28,11 @@ public class Lever : MonoBehaviour
   /***** Functions *****/
 
 
+  /**
+   * Start()
+   *
+   * Built in Unity function. Start is called before the first frame update
+   */
   void Start()
   {
     /* get the sprite renderer */

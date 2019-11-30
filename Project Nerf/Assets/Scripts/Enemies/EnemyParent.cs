@@ -140,6 +140,8 @@ public class EnemyParent : MonoBehaviour
         //        mean that this needs to be more universal
         this.GetComponent<GreenSlime>().deathHandler();
 
+        this.GetComponent<TurretEnemy>().deathHandler();
+
       }
     }
 

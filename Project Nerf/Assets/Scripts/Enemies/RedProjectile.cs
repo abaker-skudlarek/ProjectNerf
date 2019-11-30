@@ -1,18 +1,36 @@
+/**
+ *  @file RedProjectile.cs
+ *
+ *  @brief Projectile that is shot from the red slime. Inherits from the projectile
+ *          base class
+ *
+ *  @author: Alex Baker
+ *  @date:   November 17 2019
+ */
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedProjectile : MonoBehaviour
+public class RedProjectile : Projectile
 {
-    // Start is called before the first frame update
+    /**
+     * Start()
+     *
+     * Built in Unity function. Start is called before the first frame update
+     */
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+    /**
+     * Update()
+     *
+     * Built in Unity function. Update is called every frame
+     */
     void Update()
     {
-        
+
     }
 }

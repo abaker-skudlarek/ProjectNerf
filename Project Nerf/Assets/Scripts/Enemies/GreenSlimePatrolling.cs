@@ -81,8 +81,6 @@ public class GreenSlimePatrolling : GreenSlime
           changeDestination();
         }
       }
-
-
     }
 
     /**

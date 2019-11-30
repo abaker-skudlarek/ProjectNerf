@@ -34,7 +34,7 @@ public class GreenSlime : EnemyParent
      *
      * Built in Unity function. Start is called before the first frame update
      */
-    void Start()
+    public virtual void Start()
     {
       /* complete the references */
       slimeAnimator = GetComponent<Animator>();
@@ -52,7 +52,7 @@ public class GreenSlime : EnemyParent
      *
      * Built in Unity function. Update is called every frame
      */
-    void Update()
+    public virtual void Update()
     {
       /* check the distance between the player and the slime, move towards player */
       checkDistance();
@@ -61,7 +61,7 @@ public class GreenSlime : EnemyParent
     /**
      * checkDistance()
      *
-     * This funtion checks the enemy distance with the player's (AKA target) and
+     * This function checks the enemy distance with the player's (AKA target) and
      *  moves towards the player if they are within range.
      */
     public virtual void checkDistance()
@@ -97,7 +97,6 @@ public class GreenSlime : EnemyParent
             he isn't within the chase radius */
         slimeAnimator.SetBool("isMoving", false);
       }
-
     }
 
     /**
@@ -106,7 +105,7 @@ public class GreenSlime : EnemyParent
      * Defines what happens when the slime dies. Death animation should play, it
      *  should stop moving, and be removed from the scene
      */
-    public void deathHandler()
+    public virtual void deathHandler()
     {
       /* set the boolean for the death animation to be true */
       slimeAnimator.SetBool("isDead", true);
