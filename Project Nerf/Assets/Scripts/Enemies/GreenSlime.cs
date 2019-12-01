@@ -24,8 +24,8 @@ public class GreenSlime : EnemyParent
     public Transform target;       /* what the enemy is set to chase */
     public float chaseRadius;      /* the radius that the enemy will chase at */
     public float attackRadius;     /* the radius that the enemy will attack at */
-    public Transform homePosition; /* where to move back to when the player
-                                       moves out of radius from the enemy */
+    //public Transform homePosition; /* where to move back to when the player
+                                       //moves out of radius from the enemy */
 
     /***** Functions *****/
 
@@ -131,6 +131,27 @@ public class GreenSlime : EnemyParent
 
       /* set the game object to inactive, making it invisible */
       this.gameObject.SetActive(false);
+    }
+
+    /**
+     * takeDamage()
+     *
+     * Called when the slime takes damage. Calls the death handler if the slime's
+     *  HP is lower than 0
+     *
+     * @param damage: The amount of damage that the hit does, will be subtracted
+     *                  from the HP of the enemy
+     */
+    public override void takeDamage(float damage)
+    {
+      /* subtract the damage from the current HP of the enemy */
+      enemyCurrHealth -= damage;
+
+      /* call the death function if the HP is at or below 0 */
+      if(enemyCurrHealth <= 0)
+      {
+        this.GetComponent<GreenSlime>().deathHandler();
+      }
     }
 
 }

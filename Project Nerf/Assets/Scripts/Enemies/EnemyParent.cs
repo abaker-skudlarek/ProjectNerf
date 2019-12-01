@@ -34,8 +34,10 @@ public class EnemyParent : MonoBehaviour
     public double enemyBaseAttack;    /* the base attack value of the enemy */
     public float enemyBaseSpeed;      /* the base move speed of the enemy */
     public EnemyState currentState;   /* current state of the enemy */
+    public Vector2 homePosition;      /* position the enemy should go back to when active again */
 
     /***** Functions *****/
+
 
     /**
      * Awake()
@@ -47,6 +49,12 @@ public class EnemyParent : MonoBehaviour
     {
       /* start the HP at the max HP the enemy can have */
       enemyCurrHealth = enemyMaxHealth.initialValue;
+    }
+
+    private void OnEnable()
+    {
+      /* set home position */
+      transform.position = homePosition;
     }
 
     /**
@@ -128,21 +136,10 @@ public class EnemyParent : MonoBehaviour
      * @param damage: The amount of damage that the hit does, will be subtracted
      *                  from the HP of the enemy
      */
-    public void takeDamage(float damage)
+    public virtual void takeDamage(float damage)
     {
-      /* subtract the damage from the current HP of the enemy */
-      enemyCurrHealth -= damage;
-
-      /* call the death function if the HP is at or below 0 */
-      if(enemyCurrHealth <= 0)
-      {
-        // FIXME this works, but only for the GreenSlime. Adding new enemies will
-        //        mean that this needs to be more universal
-        this.GetComponent<GreenSlime>().deathHandler();
-
-        this.GetComponent<TurretEnemy>().deathHandler();
-
-      }
+      /* this function is overridden by the child classes so they can call their
+          own death handlers */
     }
 
 

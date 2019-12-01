@@ -7,16 +7,16 @@ TextureImporter:
     second: SpriteSheetMisc_0
   - first:
       213: -7591840989980903664
-    second: SpriteSheetMisc_1
+    second: WoodenDoor_Left_Down
   - first:
       213: -5909702022420820036
-    second: SpriteSheetMisc_2
+    second: WoodenDoor_Right_Down
   - first:
       213: -1551688003766968698
-    second: SpriteSheetMisc_3
+    second: WoodenDoor_Left_Up
   - first:
       213: 5699835178469735537
-    second: SpriteSheetMisc_4
+    second: WoodenDoor_Right_Up
   - first:
       213: 24841109924240965
     second: SpriteSheetMisc_5
@@ -158,7 +158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetMisc_1
+      name: WoodenDoor_Left_Down
       rect:
         serializedVersion: 2
         x: 112
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetMisc_2
+      name: WoodenDoor_Right_Down
       rect:
         serializedVersion: 2
         x: 128
@@ -200,15 +200,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetMisc_3
+      name: WoodenDoor_Left_Up
       rect:
         serializedVersion: 2
         x: 144
         y: 337
         width: 16
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.1765585, y: 0.4982325}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,15 +221,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheetMisc_4
+      name: WoodenDoor_Right_Up
       rect:
         serializedVersion: 2
         x: 160
         y: 337
         width: 16
         height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.8393488, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
