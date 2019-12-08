@@ -130,7 +130,10 @@ public class GreenSlime : EnemyParent
       yield return new WaitForSeconds(1.3f);
 
       /* set the game object to inactive, making it invisible */
-      this.gameObject.SetActive(false);
+      //this.gameObject.SetActive(false);
+
+      /* destroy the game object when it dies, so it can't come back */
+      Destroy(this.gameObject);
     }
 
     /**
@@ -150,6 +153,8 @@ public class GreenSlime : EnemyParent
       /* call the death function if the HP is at or below 0 */
       if(enemyCurrHealth <= 0)
       {
+        roomSignal.raise();
+
         this.GetComponent<GreenSlime>().deathHandler();
       }
     }

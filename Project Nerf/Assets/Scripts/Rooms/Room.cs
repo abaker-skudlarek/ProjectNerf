@@ -40,7 +40,7 @@ public class Room : MonoBehaviour
     }
   }
 
-  void flipActivation(Component component, bool isActive)
+  public void flipActivation(Component component, bool isActive)
   {
     component.gameObject.SetActive(isActive);
   }

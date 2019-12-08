@@ -28,13 +28,14 @@ public class EnemyParent : MonoBehaviour
     /* -- Private -- */
 
     /* -- Public -- */
-    public FloatValue enemyMaxHealth; /* the max health of the enemy */
-    public float enemyCurrHealth;     /* the current health of the enemy */
-    public string enemyName;          /* the name of the enemy */
-    public double enemyBaseAttack;    /* the base attack value of the enemy */
-    public float enemyBaseSpeed;      /* the base move speed of the enemy */
-    public EnemyState currentState;   /* current state of the enemy */
-    public Vector2 homePosition;      /* position the enemy should go back to when active again */
+    public FloatValue enemyMaxHealth;   /* the max health of the enemy */
+    public float enemyCurrHealth;       /* the current health of the enemy */
+    public string enemyName;            /* the name of the enemy */
+    public double enemyBaseAttack;      /* the base attack value of the enemy */
+    public float enemyBaseSpeed;        /* the base move speed of the enemy */
+    public EnemyState currentState;     /* current state of the enemy */
+    public Vector2 homePosition;        /* position the enemy should go back to when active again */
+    public ScriptableSignal roomSignal; /* signal to send on death */
 
     /***** Functions *****/
 

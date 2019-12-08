@@ -61,7 +61,6 @@ public class Door : GameObjectParent
         }
       }
     }
-
   }
 
   /**
@@ -72,6 +71,8 @@ public class Door : GameObjectParent
    */
   public void openDoor()
   {
+    Debug.Log("openDoor called");
+    
     /* disable the doors sprite, making it disappear */
     doorSprite.enabled = false;
 
@@ -80,6 +81,18 @@ public class Door : GameObjectParent
 
     /* disable the doors collider, so the player doesn't run into nothing */
     doorCollider.enabled = false;
+  }
+
+  public void closeDoor()
+  {
+    /* disable the doors sprite, making it disappear */
+    doorSprite.enabled = true;
+
+    /* set the door to being "open" */
+    isOpen = false;
+
+    /* disable the doors collider, so the player doesn't run into nothing */
+    doorCollider.enabled = true;
   }
 
 
