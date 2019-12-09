@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -142745435
-  m_SortingLayer: 2
+  m_SortingLayerID: -1743936273
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4809906197739305226, guid: d41c48c78fa30b84dbaebb246c546231,
     type: 3}
@@ -193,12 +193,13 @@ MonoBehaviour:
   enemyBaseAttack: 1
   enemyBaseSpeed: 2
   currentState: 0
+  homePosition: {x: 0, y: 0}
+  roomSignal: {fileID: 0}
   slimeBody: {fileID: 0}
   slimeAnimator: {fileID: 0}
   target: {fileID: 0}
   chaseRadius: 9
   attackRadius: 0
-  homePosition: {fileID: 0}
   projectile: {fileID: 3502201556080856679, guid: d38dbf01abc1342ff8817cef165f6a19,
     type: 3}
   fireDelay: 2

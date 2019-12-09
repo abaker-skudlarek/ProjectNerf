@@ -374,6 +374,9 @@ TextureImporter:
   - first:
       213: 6154236161160189960
     second: SpriteSheet16x32_123
+  - first:
+      213: 6131737730240593967
+    second: WoodenDoorTop
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -2931,6 +2934,27 @@ TextureImporter:
       bones: []
       spriteID: 001950b9390b34793aa271252398c474
       internalID: 6154236161160189960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WoodenDoorTop
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 380
+        width: 16
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36267e97c0f0d40f5958cc0b2ea14432
+      internalID: 6131737730240593967
       vertices: []
       indices: 
       edges: []

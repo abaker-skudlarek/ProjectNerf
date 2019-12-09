@@ -132,7 +132,9 @@ public class TurretEnemy : GreenSlime
     {
       roomSignal.raise();
 
-      this.GetComponent<TurretEnemy>().deathHandler();
+      //this.GetComponent<TurretEnemy>().deathHandler();
+
+      deathHandler();
     }
   }
 

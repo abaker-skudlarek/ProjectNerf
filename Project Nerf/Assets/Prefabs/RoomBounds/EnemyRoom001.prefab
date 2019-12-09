@@ -114,7 +114,7 @@ PrefabInstance:
     - target: {fileID: 9098251450121099038, guid: 6b576f0fd460645838f88012137873ad,
         type: 3}
       propertyPath: m_Name
-      value: EnemyRoom_LeftDoor
+      value: EnemyRoom001
       objectReference: {fileID: 0}
     - target: {fileID: 9098251450383462225, guid: 6b576f0fd460645838f88012137873ad,
         type: 3}

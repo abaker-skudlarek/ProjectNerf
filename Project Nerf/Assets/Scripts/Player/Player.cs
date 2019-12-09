@@ -284,15 +284,16 @@ public class Player : MonoBehaviour
     /* set state equal to dead */
     currentState = PlayerState.dead;
 
+    /* prevent the player from moving after death */
     if(transform.position.x > 0)
     {
       playerRigidBody.velocity = Vector3.zero;
     }
+
     if(transform.position.y > 0)
     {
       playerRigidBody.velocity = Vector3.zero;
     }
-
 
     /* set speed to 0 so we can't move after death */
     playerSpeed = 0;

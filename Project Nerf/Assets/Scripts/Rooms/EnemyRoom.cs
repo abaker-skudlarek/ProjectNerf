@@ -23,28 +23,15 @@ public class EnemyRoom : Room
 
   public void checkEnemies()
   {
-    Debug.Log("checkenemies called");
-    Debug.Log("enemies: " + enemyCount);
-
     /* check if all enemies in the room are dead */
     for(int i = 0; i < enemies.Length; i++)
     {
-      Debug.Log("For loop i =  " + i);
-
-
-
-      // FIXME patrolling green slime doesn't die, and the door doesn't open when he's supposed to
-
-      //if(enemies[i].gameObject.activeInHierarchy && i < enemies.Length - 1)
       if(enemies[i].gameObject.activeInHierarchy)
       {
-
-        Debug.Log("enemyCount--");
         enemyCount--;
 
         if(enemyCount <= 0)
         {
-          Debug.Log("open doors called");
           openDoors();
           return;
         }
