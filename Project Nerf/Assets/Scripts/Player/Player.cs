@@ -284,6 +284,16 @@ public class Player : MonoBehaviour
     /* set state equal to dead */
     currentState = PlayerState.dead;
 
+    if(transform.position.x > 0)
+    {
+      playerRigidBody.velocity = Vector3.zero;
+    }
+    if(transform.position.y > 0)
+    {
+      playerRigidBody.velocity = Vector3.zero;
+    }
+
+
     /* set speed to 0 so we can't move after death */
     playerSpeed = 0;
 
@@ -324,7 +334,7 @@ public class Player : MonoBehaviour
   {
     /* raise the signal to let everyone subscribed know the player was hit */
     playerHit.raise();
-    
+
     if(playerRigidBody != null)
     {
       /* wait for the amount of time for the knockback */

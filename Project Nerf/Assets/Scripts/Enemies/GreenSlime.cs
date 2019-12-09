@@ -124,7 +124,7 @@ public class GreenSlime : EnemyParent
      * This will be used to set the enemy as inactive when it dies, which will make
      *  it disappear
      */
-    private IEnumerator removeSlime()
+    public IEnumerator removeSlime()
     {
       /* wait for roughly the time of the animation */
       yield return new WaitForSeconds(1.3f);
@@ -155,7 +155,9 @@ public class GreenSlime : EnemyParent
       {
         roomSignal.raise();
 
-        this.GetComponent<GreenSlime>().deathHandler();
+        //this.GetComponent<GreenSlime>().deathHandler();
+
+        deathHandler();
       }
     }
 

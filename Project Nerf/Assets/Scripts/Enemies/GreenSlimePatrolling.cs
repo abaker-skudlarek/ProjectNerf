@@ -105,4 +105,30 @@ public class GreenSlimePatrolling : GreenSlime
       }
     }
 
+    /**
+     * takeDamage()
+     *
+     * Called when the slime takes damage. Calls the death handler if the slime's
+     *  HP is lower than 0
+     *
+     * @param damage: The amount of damage that the hit does, will be subtracted
+     *                  from the HP of the enemy
+     */
+    public override void takeDamage(float damage)
+    {
+      /* subtract the damage from the current HP of the enemy */
+      enemyCurrHealth -= damage;
+
+      /* call the death function if the HP is at or below 0 */
+      if(enemyCurrHealth <= 0)
+      {
+        roomSignal.raise();
+
+        //this.GetComponent<GreenSlimePatrolling>().deathHandler();
+
+        deathHandler();
+      }
+    }
+
+
 }
