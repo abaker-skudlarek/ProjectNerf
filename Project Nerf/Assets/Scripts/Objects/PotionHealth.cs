@@ -57,7 +57,7 @@ public class PotionHealth : ConsumableParent
     {
       totalIncrease = playerHealth.runtimeValue += healthIncrease;
 
-      if(totalIncrease < playerHealth.initialValue)
+      if(totalIncrease <= playerHealth.initialValue)
       {
         /* increase the runtime value of the player's health by the amount to increase */
         //playerHealth.runtimeValue += healthIncrease;

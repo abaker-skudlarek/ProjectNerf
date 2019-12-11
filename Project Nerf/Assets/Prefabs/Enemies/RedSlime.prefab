@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5787341485747152506}
   - component: {fileID: 5787341485747152505}
   - component: {fileID: 5787341485747152504}
-  - component: {fileID: 5787341485747152491}
+  - component: {fileID: 6004071451724972776}
   - component: {fileID: 5787341485747152500}
   m_Layer: 8
   m_Name: RedSlime
@@ -175,7 +175,7 @@ MonoBehaviour:
   thrust: 2
   knockbackTime: 0.2
   damage: 1
---- !u!114 &5787341485747152491
+--- !u!114 &6004071451724972776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,21 +190,21 @@ MonoBehaviour:
   enemyMaxHealth: {fileID: 11400000, guid: 4ffe87308b7c9451a848bda5ac70059d, type: 2}
   enemyCurrHealth: 0
   enemyName: RedSlime001
-  enemyBaseAttack: 1
-  enemyBaseSpeed: 2
+  enemyBaseAttack: 2
+  enemyBaseSpeed: 0
   currentState: 0
-  homePosition: {x: 0, y: 0}
-  roomSignal: {fileID: 0}
-  slimeBody: {fileID: 0}
-  slimeAnimator: {fileID: 0}
-  target: {fileID: 0}
-  chaseRadius: 9
+  homePosition: {x: -27.48, y: 14.51}
+  roomSignal: {fileID: 11400000, guid: 22afef020ee164b0aa086d70d0a4bd1b, type: 2}
+  slimeBody: {fileID: 5787341485747152506}
+  slimeAnimator: {fileID: 5787341485747152500}
+  target: {fileID: 8365004197108294389, guid: 117dea2a01afb4f14be144851bbbcca5, type: 3}
+  chaseRadius: 8
   attackRadius: 0
   projectile: {fileID: 3502201556080856679, guid: d38dbf01abc1342ff8817cef165f6a19,
     type: 3}
-  fireDelay: 2
+  fireDelay: 2.5
   canFire: 1
-  redSlimeAnimator: {fileID: 0}
+  redSlimeAnimator: {fileID: 5787341485747152500}
 --- !u!95 &5787341485747152500
 Animator:
   serializedVersion: 3

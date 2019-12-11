@@ -71,8 +71,6 @@ public class Door : GameObjectParent
    */
   public void openDoor()
   {
-    Debug.Log("openDoor called");
-    
     /* disable the doors sprite, making it disappear */
     doorSprite.enabled = false;
 
