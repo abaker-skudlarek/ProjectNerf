@@ -55,7 +55,7 @@ public class TurretEnemy : GreenSlime
           GameObject currProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
           /* launch the projectile that we spawned using the temp vector */
-          currProjectile.GetComponent<Projectile>().launch(tempVector);
+          currProjectile.GetComponent<Projectile>().launch(tempVector.normalized);
 
           /* set can fire to false, because it is busy firing right now */
           canFire = false;

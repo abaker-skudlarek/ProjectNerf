@@ -149,6 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: {x: 0, y: 0}
-  timeToLive: 1
-  moveSpeed: 1
+  timeToLive: 0.5
+  moveSpeed: 4
   projectileBody: {fileID: 3502201556080856678}
