@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6934d1a26aa41b9bf309476a59dcbd, type: 3}
-  m_Name: PlayerHP
+  m_Script: {fileID: 11500000, guid: d744890e0e2afa7409e227748f0bb00f, type: 3}
+  m_Name: Room006Death
   m_EditorClassIdentifier: 
-  initialValue: 10
-  runtimeValue: 6
+  signalListeners: []

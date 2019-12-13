@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
   public double currDamage;                   /* current damage for the player */
   public SpriteRenderer itemSprite;           /* sprite for the item being received */
   public ScriptableSignal playerHit;          /* signal for when the player is hit */
+  public GameObject projectile;
 
   /***** Functions *****/
 
@@ -126,6 +127,11 @@ public class Player : MonoBehaviour
       /* start the coroutine for attacking */
       StartCoroutine(attackCoroutine());
     }
+    else if(Input.GetKeyDown("i") && currentState != PlayerState.attacking
+             && currentState != PlayerState.staggered)
+    {
+      StartCoroutine(secondAttackCoroutine());
+    }
     /* if the player is walking */
     else if(currentState == PlayerState.walking || currentState == PlayerState.idle)
     {
@@ -167,6 +173,51 @@ public class Player : MonoBehaviour
     {
       currentState = PlayerState.idle;
     }
+  }
+
+  private IEnumerator secondAttackCoroutine()
+  {
+    /* tell the attacking animation to fire */
+    //playerAnimator.SetBool("isAttacking", true);
+
+    /* set our current state to attacking */
+    currentState = PlayerState.attacking;
+
+    /* wait 1 frame */
+    yield return null;
+
+    makeArrow();
+
+    /* turn the attacking animation off */
+    //playerAnimator.SetBool("isAttacking", false);
+
+    /* wait the length of the attack animation */
+    //yield return new WaitForSeconds(.92f);
+
+    /* set the player state back to idle as long as they are not currently interacting
+     *  with something */
+    if(currentState != PlayerState.interacting)
+    {
+      currentState = PlayerState.idle;
+    }
+  }
+
+  private void makeArrow()
+  {
+    int direction = 0;
+
+    if(facingRight)
+      direction = 1;
+    else
+      direction = -1;
+
+    Vector2 temp = new Vector2(direction, 0);
+
+    Arrow arrow = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Arrow>();
+
+    arrow.setup(temp, Vector3.zero);
+
+
   }
 
   /**
